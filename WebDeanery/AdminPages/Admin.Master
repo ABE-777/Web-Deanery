@@ -71,6 +71,8 @@
     </style>
     </div>
          </div>
+             <div id="HeadDiv" style="background-color:#7a1310;height: 26px; width:100%; display:inline; position:absolute"></div>
+
          <div id="HeadMenu" style=" background-color:#7a1310; width:974px; height: 26px; ">
               <asp:Menu ID="Menu" runat="server" Orientation="Horizontal" StaticEnableDefaultPopOutImage="False">
                  <Items>

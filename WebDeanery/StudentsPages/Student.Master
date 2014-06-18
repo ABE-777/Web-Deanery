@@ -8,9 +8,33 @@
         Response.Redirect("~/Default.aspx");
     }  
 </script>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <style type="text/css">
+        input {
+        margin:0;
+        padding:0;
+        display:inline-block;
+        }
+        #Menu {
+             position:absolute;
+             display:inline;
+        }
+        .LogoutClass {
+            position:absolute;
+            margin-left:90%;
+        }
+        #HeadMenu {
+            padding-top:0px;
+            position:relative;
+            margin-left:50%;
+            left:-487PX;
+            display:block:inline;
+        }
+        ul > li {
+            list-style-type:none;
+        }
               #search_box {background:url(/Resources/search.png) 0 0 no-repeat;height:28px;margin:0 auto;position:relative;width:307px;}
               #search_box input{background:none;border:0;font-family:Tahoma,Arial,Helvetica,sans-serif;font-size:16px;line-height:16px;margin:2px 0 2px 5px;outline:none;padding:2px;width:270px;-webkit-appearance:none;-webkit-border-radius:0;}
               #search_box img {float:right;margin:0 0 0 0;}
@@ -26,7 +50,6 @@
          <br />
          <div id="search_box" align="left">
     <img src="/Resources/searchbutton.png" alt="Submit" id="btn_search"  onmouseover="this.src='/Resources/searchbutton2.png'"  onmouseout="this.src='/Resources/searchbutton.png'"/>
-    
     <input id="txt_search" type="text" />
     <style type="text/css">        
         #search_box {background:url(/Resources/search.png) 0 0 no-repeat;height:28px;margin:0 auto;position:relative;width:307px;
@@ -48,13 +71,31 @@
     </style>
     </div>
          </div>
-         <div id="HeadMenu" align="center", 
-         style="background-color:#7a1310; height: 36px;">
-          <asp:ImageButton ID="LogoutButton" runat="server" CssClass="RightArrow" 
-            ImageUrl="/Resources/Head/log out.jpg"   
+             <div id="HeadDiv" style="background-color:#7a1310;height: 26px; width:100%; display:inline; position:absolute"></div>
+
+         <div id="HeadMenu" style=" background-color:#7a1310; width:974px; height: 26px; ">
+              <asp:Menu ID="Menu" runat="server" Orientation="Horizontal" StaticEnableDefaultPopOutImage="False">
+                 <Items>
+                     <asp:MenuItem ImageUrl="~/Resources/Head/dasboard.jpg" Selectable="False"></asp:MenuItem>
+                     <asp:MenuItem ImageUrl="~/Resources/Head/students.jpg" Selectable="False"></asp:MenuItem>
+                     <asp:MenuItem ImageUrl="~/Resources/Head/attendance.jpg" Selectable="False">
+                         <asp:MenuItem Text="Создать элемент" Value="Создать элемент"></asp:MenuItem>
+                     </asp:MenuItem>
+                     <asp:MenuItem ImageUrl="~/Resources/Head/settings.jpg" Selectable="False">
+                         <asp:MenuItem Text="Создать элемент" Value="Создать элемент"></asp:MenuItem>
+                     </asp:MenuItem>
+                     <asp:MenuItem ImageUrl="~/Resources/Head/more.jpg">
+                         <asp:MenuItem Text="Создать элемент" Value="Создать элемент"></asp:MenuItem>
+                     </asp:MenuItem>
+                 </Items>
+                 <StaticMenuItemStyle BackColor="#7A1310" />
+             </asp:Menu>
+          <asp:ImageButton ID="LogoutButton" runat="server"            
+              ImageUrl="/Resources/Head/log out.jpg"   
             onmouseover="this.src='/Resources/Head/log out1.jpg'" 
             onmouseout="this.src='/Resources/Head/log out.jpg'"
-             OnCommand="Button_Command"/>
+             OnCommand="Button_Command" CssClass="LogoutClass" />
+
          </div>
          <p style="margin: 10px"></p>
          <div align="center">
