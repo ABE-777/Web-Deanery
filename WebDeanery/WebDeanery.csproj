@@ -78,7 +78,7 @@
     <Content Include="DeaneryPages\test.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="LogoutButton.css" />
+    <Content Include="LogoutClass.css" />
     <Content Include="ParentsPages\ParentPage.aspx" />
     <Content Include="PassRecovery.aspx" />
     <Content Include="Resources\01.jpg" />
@@ -164,6 +164,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminPages\AddMission.aspx.cs">
@@ -348,6 +349,13 @@
     </Compile>
     <Compile Include="StudentsPages\TimeTable.aspx.designer.cs">
       <DependentUpon>TimeTable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

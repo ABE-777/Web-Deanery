@@ -55,10 +55,14 @@ top: -15px;
                                             ValidationGroup="Login1" 
             ForeColor="#D9AC29" Font-Bold="True" Font-Size="Medium" >Enter login                                           </asp:RequiredFieldValidator>
         <style type="text/css">
-            #LoginValidator{height:45px;
-margin:0 auto;position:relative;width:414px;
-            top: -254px;
-            left: 0px;
+            #LoginValidator {
+                height: 45px;
+                margin: 0 auto;
+                position: relative;
+                width: 414px;
+                top: -254px;
+                left: 0px;
+            }
         </style>
         </div>
     <div id="Password_box"  style="text-align:left">
