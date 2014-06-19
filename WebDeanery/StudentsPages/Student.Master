@@ -11,6 +11,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
+   
     <style type="text/css">
         input {
         margin:0;
@@ -37,22 +38,10 @@
         }
               #search_box {background:url(/Resources/search.png) 0 0 no-repeat;height:28px;margin:0 auto;position:relative;width:307px;}
               #search_box input{background:none;border:0;font-family:Tahoma,Arial,Helvetica,sans-serif;font-size:16px;line-height:16px;margin:2px 0 2px 5px;outline:none;padding:2px;width:270px;-webkit-appearance:none;-webkit-border-radius:0;}
-              #search_box img {float:right;margin:0 0 0 0;}
-  </style>
-<title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server" >
-    </asp:ContentPlaceHolder>
-</head>
-<body style="margin: 0 0 0 0;">
-    <form id="form1" runat="server">
-     <div id="Head" align="center", style="background-color:#7a1314; height: 133px;">
-         <asp:Image ID="Image1" runat="server" ImageUrl="~/Resources/Head.png" />
-         <br />
-         <div id="search_box" align="left">
-    <img src="/Resources/searchbutton.png" alt="Submit" id="btn_search"  onmouseover="this.src='/Resources/searchbutton2.png'"  onmouseout="this.src='/Resources/searchbutton.png'"/>
-    <input id="txt_search" type="text" />
-    <style type="text/css">        
-        #search_box {background:url(/Resources/search.png) 0 0 no-repeat;height:28px;margin:0 auto;position:relative;width:307px;
+              #search_box img {float:right;margin:0 0 0 0;
+
+              }
+               #search_box {background:url(/Resources/search.png) 0 0 no-repeat;height:28px;margin:0 auto;position:relative;width:307px;
             top: -77px;
             left: 318px;
         }
@@ -68,10 +57,25 @@
         {
             width: 270px;
         }
-    </style>
+  </style>
+<title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server" >
+    </asp:ContentPlaceHolder>
+</head>
+<body style="margin: 0 0 0 0;">
+    <form id="form1" runat="server">
+     <div id="Head" align="center", style="background-color:#7a1314; height: 133px;">
+         <asp:Image ID="Image1" runat="server" ImageUrl="~/Resources/Head.png" />
+         <br />
+         <div id="search_box" align="left">
+    <img src="/Resources/searchbutton.png" alt="Submit" id="btn_search"  onmouseover="this.src='/Resources/searchbutton2.png'"  onmouseout="this.src='/Resources/searchbutton.png'"/>
+    <input id="txt_search" type="text" />
+    
     </div>
          </div>
-             <div id="HeadDiv" style="background-color:#7a1310;height: 26px; width:100%; display:inline; position:absolute"></div>
+             <div id="HeadDiv" style="background-color:#7a1310;height: 26px; width:100%; display:inline; position:absolute">
+
+             </div>
 
          <div id="HeadMenu" style=" background-color:#7a1310; width:974px; height: 26px; ">
               <asp:Menu ID="Menu" runat="server" Orientation="Horizontal" StaticEnableDefaultPopOutImage="False">
