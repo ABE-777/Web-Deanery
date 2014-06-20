@@ -2,23 +2,36 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.Common;
+using WebDeanery.DataLayer;
+using WebDeanery.Models;
 
 namespace WebDeanery.AmbionPages
 {
     public partial class AmbionAttendance : System.Web.UI.Page
     {
+        static readonly UniversityEntities Db = new UniversityEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         protected void Fakultet_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Изменить значения следующего листа
         }
+
+        [WebMethod]
+        public static List<Fakultet> GetStudent()
+        {
+            return Db.Fakultet.ToList();
+        }
+
     }
+
+
 }

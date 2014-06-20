@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="UniversityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'University.dbo.Ambion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Ambion">
+          <Key>
+            <PropertyRef Name="AmbionID" />
+          </Key>
+          <Property Name="AmbionID" Type="int" Nullable="false" />
+          <Property Name="AmbionAnun" Type="nchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'University.dbo.Ararka' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Ararka">
+          <Key>
+            <PropertyRef Name="ArarkaID" />
+          </Key>
+          <Property Name="ArarkaID" Type="int" Nullable="false" />
+          <Property Name="ArarkaAnun" Type="nchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'University.dbo.Dasaxos' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Dasaxos">
+          <Property Name="DasaxosID" Type="nchar" MaxLength="10" />
+          <Property Name="AnunAzganun" Type="nchar" MaxLength="10" />
+          <Property Name="Kochum" Type="nchar" MaxLength="10" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'University.dbo.Fakultet' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Fakultet">
+          <Key>
+            <PropertyRef Name="FacultetID" />
+          </Key>
+          <Property Name="FacultetID" Type="int" Nullable="false" />
+          <Property Name="FacultetAnun" Type="nchar" MaxLength="255" />
+          <Property Name="FacultetKrchat" Type="char" MaxLength="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'University.dbo.Masnagitucyun' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Masnagitucyun">
+          <Key>
+            <PropertyRef Name="MasnagitutyunID" />
+          </Key>
+          <Property Name="MasnagitutyunID" Type="int" Nullable="false" />
+          <Property Name="Masnagitutyun" Type="nchar" MaxLength="255" />
+          <Property Name="MasnagitutyunKrchat" Type="char" MaxLength="3" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'University.dbo.Student' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentID" />
+            <PropertyRef Name="StudentCode" />
+          </Key>
+          <Property Name="StudentID" Type="bigint" Nullable="false" />
+          <Property Name="StudentCode" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="Azganun" Type="nchar" MaxLength="80" />
+          <Property Name="Anun" Type="nchar" MaxLength="80" />
+          <Property Name="Hayranun" Type="nchar" MaxLength="80" />
+          <Property Name="Ser" Type="char" MaxLength="1" />
+          <Property Name="Bithday" Type="date" />
+          <Property Name="Tcnndavayr" Type="nchar" MaxLength="80" />
+          <Property Name="Qaxaqaciutyun" Type="nchar" MaxLength="80" />
+          <Property Name="Incheavartel(dproc)" Type="nchar" MaxLength="80" />
+          <Property Name="AvarteluTarin (dproc)" Type="int" />
+          <Property Name="AvartakanVkayakaniHamar" Type="char" MaxLength="9" />
+          <Property Name="BnakutyanVayr" Type="nchar" MaxLength="255" />
+          <Property Name="GrancmanVayr" Type="nchar" MaxLength="255" />
+          <Property Name="Herbjayin" Type="char" MaxLength="9" />
+          <Property Name="Mail" Type="nchar" MaxLength="50" />
+          <Property Name="YndunveluTarin" Type="int" />
+          <Property Name="HramanTiv" Type="char" MaxLength="8" />
+          <Property Name="HramaniOrAmisTari" Type="date" />
+          <Property Name="UsucmanDzev" Type="bit" />
+          <Property Name="YndAvartel" Type="bit" />
+          <Property Name="StugmanGrquyk" Type="char" MaxLength="4" />
+          <Property Name="AvarteluTarin" Type="int" />
+          <Property Name="Nkar" Type="image" />
+        </EntityType>
+        <EntityContainer Name="UniversityModelStoreContainer">
+          <EntitySet Name="Ambion" EntityType="Self.Ambion" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Ambion].[AmbionID] AS [AmbionID], 
+[Ambion].[AmbionAnun] AS [AmbionAnun]
+FROM [dbo].[Ambion] AS [Ambion]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Ararka" EntityType="Self.Ararka" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Ararka].[ArarkaID] AS [ArarkaID], 
+[Ararka].[ArarkaAnun] AS [ArarkaAnun]
+FROM [dbo].[Ararka] AS [Ararka]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Fakultet" EntityType="Self.Fakultet" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Fakultet].[FacultetID] AS [FacultetID], 
+[Fakultet].[FacultetAnun] AS [FacultetAnun], 
+[Fakultet].[FacultetKrchat] AS [FacultetKrchat]
+FROM [dbo].[Fakultet] AS [Fakultet]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Masnagitucyun" EntityType="Self.Masnagitucyun" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Masnagitucyun].[MasnagitutyunID] AS [MasnagitutyunID], 
+[Masnagitucyun].[Masnagitutyun] AS [Masnagitutyun], 
+[Masnagitucyun].[MasnagitutyunKrchat] AS [MasnagitutyunKrchat]
+FROM [dbo].[Masnagitucyun] AS [Masnagitucyun]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Student" EntityType="Self.Student" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Student].[StudentID] AS [StudentID], 
+[Student].[StudentCode] AS [StudentCode], 
+[Student].[Azganun] AS [Azganun], 
+[Student].[Anun] AS [Anun], 
+[Student].[Hayranun] AS [Hayranun], 
+[Student].[Ser] AS [Ser], 
+[Student].[Bithday] AS [Bithday], 
+[Student].[Tcnndavayr] AS [Tcnndavayr], 
+[Student].[Qaxaqaciutyun] AS [Qaxaqaciutyun], 
+[Student].[Incheavartel(dproc)] AS [Incheavartel(dproc)], 
+[Student].[AvarteluTarin (dproc)] AS [AvarteluTarin (dproc)], 
+[Student].[AvartakanVkayakaniHamar] AS [AvartakanVkayakaniHamar], 
+[Student].[BnakutyanVayr] AS [BnakutyanVayr], 
+[Student].[GrancmanVayr] AS [GrancmanVayr], 
+[Student].[Herbjayin] AS [Herbjayin], 
+[Student].[Mail] AS [Mail], 
+[Student].[YndunveluTarin] AS [YndunveluTarin], 
+[Student].[HramanTiv] AS [HramanTiv], 
+[Student].[HramaniOrAmisTari] AS [HramaniOrAmisTari], 
+[Student].[UsucmanDzev] AS [UsucmanDzev], 
+[Student].[YndAvartel] AS [YndAvartel], 
+[Student].[StugmanGrquyk] AS [StugmanGrquyk], 
+[Student].[AvarteluTarin] AS [AvarteluTarin], 
+[Student].[Nkar] AS [Nkar]
+FROM [dbo].[Student] AS [Student]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UniversityModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="Ambion">
+          <Key>
+            <PropertyRef Name="AmbionID" />
+          </Key>
+          <Property Name="AmbionID" Type="Int32" Nullable="false" />
+          <Property Name="AmbionAnun" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Ararka">
+          <Key>
+            <PropertyRef Name="ArarkaID" />
+          </Key>
+          <Property Name="ArarkaID" Type="Int32" Nullable="false" />
+          <Property Name="ArarkaAnun" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Fakultet">
+          <Key>
+            <PropertyRef Name="FacultetID" />
+          </Key>
+          <Property Name="FacultetID" Type="Int32" Nullable="false" />
+          <Property Name="FacultetAnun" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="FacultetKrchat" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Masnagitucyun">
+          <Key>
+            <PropertyRef Name="MasnagitutyunID" />
+          </Key>
+          <Property Name="MasnagitutyunID" Type="Int32" Nullable="false" />
+          <Property Name="Masnagitutyun" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="MasnagitutyunKrchat" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentID" />
+            <PropertyRef Name="StudentCode" />
+          </Key>
+          <Property Name="StudentID" Type="Int64" Nullable="false" />
+          <Property Name="StudentCode" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Azganun" Type="String" MaxLength="80" FixedLength="true" Unicode="true" />
+          <Property Name="Anun" Type="String" MaxLength="80" FixedLength="true" Unicode="true" />
+          <Property Name="Hayranun" Type="String" MaxLength="80" FixedLength="true" Unicode="true" />
+          <Property Name="Ser" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Bithday" Type="DateTime" Precision="0" />
+          <Property Name="Tcnndavayr" Type="String" MaxLength="80" FixedLength="true" Unicode="true" />
+          <Property Name="Qaxaqaciutyun" Type="String" MaxLength="80" FixedLength="true" Unicode="true" />
+          <Property Name="Incheavartel_dproc_" Type="String" MaxLength="80" FixedLength="true" Unicode="true" />
+          <Property Name="AvarteluTarin__dproc_" Type="Int32" />
+          <Property Name="AvartakanVkayakaniHamar" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="BnakutyanVayr" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="GrancmanVayr" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="Herbjayin" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="Mail" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="YndunveluTarin" Type="Int32" />
+          <Property Name="HramanTiv" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="HramaniOrAmisTari" Type="DateTime" Precision="0" />
+          <Property Name="UsucmanDzev" Type="Boolean" />
+          <Property Name="YndAvartel" Type="Boolean" />
+          <Property Name="StugmanGrquyk" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="AvarteluTarin" Type="Int32" />
+          <Property Name="Nkar" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="UniversityEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ambion" EntityType="Self.Ambion" />
+          <EntitySet Name="Ararka" EntityType="Self.Ararka" />
+          <EntitySet Name="Fakultet" EntityType="Self.Fakultet" />
+          <EntitySet Name="Masnagitucyun" EntityType="Self.Masnagitucyun" />
+          <EntitySet Name="Student" EntityType="Self.Student" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UniversityModelStoreContainer" CdmEntityContainer="UniversityEntities">
+          <EntitySetMapping Name="Ambion">
+            <EntityTypeMapping TypeName="UniversityModel.Ambion">
+              <MappingFragment StoreEntitySet="Ambion">
+                <ScalarProperty Name="AmbionID" ColumnName="AmbionID" />
+                <ScalarProperty Name="AmbionAnun" ColumnName="AmbionAnun" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ararka">
+            <EntityTypeMapping TypeName="UniversityModel.Ararka">
+              <MappingFragment StoreEntitySet="Ararka">
+                <ScalarProperty Name="ArarkaID" ColumnName="ArarkaID" />
+                <ScalarProperty Name="ArarkaAnun" ColumnName="ArarkaAnun" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fakultet">
+            <EntityTypeMapping TypeName="UniversityModel.Fakultet">
+              <MappingFragment StoreEntitySet="Fakultet">
+                <ScalarProperty Name="FacultetID" ColumnName="FacultetID" />
+                <ScalarProperty Name="FacultetAnun" ColumnName="FacultetAnun" />
+                <ScalarProperty Name="FacultetKrchat" ColumnName="FacultetKrchat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Masnagitucyun">
+            <EntityTypeMapping TypeName="UniversityModel.Masnagitucyun">
+              <MappingFragment StoreEntitySet="Masnagitucyun">
+                <ScalarProperty Name="MasnagitutyunID" ColumnName="MasnagitutyunID" />
+                <ScalarProperty Name="Masnagitutyun" ColumnName="Masnagitutyun" />
+                <ScalarProperty Name="MasnagitutyunKrchat" ColumnName="MasnagitutyunKrchat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student">
+            <EntityTypeMapping TypeName="UniversityModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="StudentCode" ColumnName="StudentCode" />
+                <ScalarProperty Name="Azganun" ColumnName="Azganun" />
+                <ScalarProperty Name="Anun" ColumnName="Anun" />
+                <ScalarProperty Name="Hayranun" ColumnName="Hayranun" />
+                <ScalarProperty Name="Ser" ColumnName="Ser" />
+                <ScalarProperty Name="Bithday" ColumnName="Bithday" />
+                <ScalarProperty Name="Tcnndavayr" ColumnName="Tcnndavayr" />
+                <ScalarProperty Name="Qaxaqaciutyun" ColumnName="Qaxaqaciutyun" />
+                <ScalarProperty Name="Incheavartel_dproc_" ColumnName="Incheavartel(dproc)" />
+                <ScalarProperty Name="AvarteluTarin__dproc_" ColumnName="AvarteluTarin (dproc)" />
+                <ScalarProperty Name="AvartakanVkayakaniHamar" ColumnName="AvartakanVkayakaniHamar" />
+                <ScalarProperty Name="BnakutyanVayr" ColumnName="BnakutyanVayr" />
+                <ScalarProperty Name="GrancmanVayr" ColumnName="GrancmanVayr" />
+                <ScalarProperty Name="Herbjayin" ColumnName="Herbjayin" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="YndunveluTarin" ColumnName="YndunveluTarin" />
+                <ScalarProperty Name="HramanTiv" ColumnName="HramanTiv" />
+                <ScalarProperty Name="HramaniOrAmisTari" ColumnName="HramaniOrAmisTari" />
+                <ScalarProperty Name="UsucmanDzev" ColumnName="UsucmanDzev" />
+                <ScalarProperty Name="YndAvartel" ColumnName="YndAvartel" />
+                <ScalarProperty Name="StugmanGrquyk" ColumnName="StugmanGrquyk" />
+                <ScalarProperty Name="AvarteluTarin" ColumnName="AvarteluTarin" />
+                <ScalarProperty Name="Nkar" ColumnName="Nkar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

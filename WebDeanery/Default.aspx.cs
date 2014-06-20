@@ -21,7 +21,6 @@ namespace WebDeanery
 
                 else if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Student"))
                 {
-
                     Response.Redirect("~/StudentsPages/StudentPage.aspx");
                 }
                 else if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Dekanat"))
@@ -33,12 +32,11 @@ namespace WebDeanery
                 {
                     Response.Redirect("~/ParentsPages/ParentPage.aspx");
                 }
+                else if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Ambion"))
+                {
+                    Response.Redirect("~/AmbionPages/AmbionPage.aspx");
+                }
             }
-        }
-
-        protected void LoginButton_Click(object sender, ImageClickEventArgs e)
-        {
-
         }
     }
 }

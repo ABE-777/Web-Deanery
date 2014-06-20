@@ -49,6 +49,15 @@ namespace WebDeanery.ParentsPages {
         protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
+        /// Menu элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Menu Menu;
+        
+        /// <summary>
         /// LogoutButton элемент управления.
         /// </summary>
         /// <remarks>
