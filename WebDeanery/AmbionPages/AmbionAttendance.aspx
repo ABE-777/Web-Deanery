@@ -16,14 +16,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="chooseDiv">
-        <div>
-      
-            
-            <input type="radio" name="mygroup" value="College" data-bind="checked: SelectedAttributeValueId" />
-            <input type="radio" name="mygroup" value="Bachelor" data-bind="checked: SelectedAttributeValueId" />
-            <input type="radio" name="mygroup" value="Magistr" data-bind="checked: SelectedAttributeValueId" />
-            <input type="radio" name="mygroup" value="Aspirant" data-bind="checked: SelectedAttributeValueId" />
-
+        <div align="center">
+            <label><input type="radio"  checked="checked" name="mygroup" value="College" data-bind="checked: SelectedAttributeValueId" /> College</label>
+            <label><input type="radio" name="mygroup" value="Bachelor" data-bind="checked: SelectedAttributeValueId" /> Bachelor</label>
+            <label><input type="radio" name="mygroup" value="Magistr" data-bind="checked: SelectedAttributeValueId" /> Magistr</label>
+            <label><input type="radio" name="mygroup" value="Aspirant" data-bind="checked: SelectedAttributeValueId" /> Aspirant</label>
             <hr />
         </div>
         <ul data-bind="foreach: items">
@@ -36,22 +33,3 @@
         </div>
     </div>
 </asp:Content>
-<%-- <asp:ListBox ID="Fakultet" runat="server" DataSourceID="SqlDataSource1"  
-            Height="123px" Width="265px" DataTextField="Ֆակուլտետի_անվանումը" 
-            DataValueField="Ֆակուլտետի_անվանումը" 
-            onselectedindexchanged="Fakultet_SelectedIndexChanged">
-        </asp:ListBox>
-        <asp:ListBox ID="Spec" runat="server" DataSourceID="SqlDataSource2" 
-            Height="123px" style="margin-top: 0px" 
-            Width="265px" DataTextField="Մասնագիտություն" 
-            DataValueField="Մասնագիտություն">
-        </asp:ListBox>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-            ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" 
-            SelectCommand="SELECT [Մասնագիտություն] FROM [Masnagitucyun]">
-        </asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-            SelectCommand="SELECT [Ֆակուլտետի անվանումը] AS Ֆակուլտետի_անվանումը FROM [Fakultet]">
-        </asp:SqlDataSource>--%>
