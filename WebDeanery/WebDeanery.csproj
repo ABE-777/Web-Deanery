@@ -43,7 +43,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -76,10 +77,6 @@
     <Content Include="AdminPages\StudentDetails.aspx" />
     <Content Include="AmbionPages\AmbionAttendance.aspx" />
     <Content Include="AmbionPages\AmbionPage.aspx" />
-    <Content Include="App_Data\University.mdf" />
-    <Content Include="App_Data\University_log.ldf">
-      <DependentUpon>University.mdf</DependentUpon>
-    </Content>
     <Content Include="DeaneryPages\Attendance.aspx" />
     <Content Include="DeaneryPages\DeaneryPage.aspx" />
     <Content Include="DeaneryPages\test.aspx" />
@@ -108,6 +105,8 @@
     <Content Include="Resources\7.jpg" />
     <Content Include="Resources\8.jpg" />
     <Content Include="Resources\9.jpg" />
+    <Content Include="Resources\diploma_suppliment.jpg" />
+    <Content Include="Resources\diploma_suppliment2.jpg" />
     <Content Include="Resources\FON.png" />
     <Content Include="Resources\Frame02.png" />
     <Content Include="Resources\Head\log out1.jpg" />
@@ -156,6 +155,23 @@
     <Content Include="Resources\StudentRes\news2.jpg" />
     <Content Include="Resources\Untitled-2.jpg" />
     <Content Include="Resources\UserFrame.png" />
+    <EntityDeploy Include="DataLayer\UniversityModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UniversityModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DataLayer\UniversityModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UniversityModel.edmx</DependentUpon>
+      <LastGenOutput>UniversityModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataLayer\UniversityModel.edmx.diagram">
+      <DependentUpon>UniversityModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="DataLayer\UniversityModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UniversityModel.edmx</DependentUpon>
+      <LastGenOutput>UniversityModel.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
@@ -431,31 +447,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="DataLayer\UniversityModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>UniversityModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DataLayer\UniversityModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>UniversityModel.edmx</DependentUpon>
-      <LastGenOutput>UniversityModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DataLayer\UniversityModel.edmx.diagram">
-      <DependentUpon>UniversityModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="DataLayer\UniversityModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>UniversityModel.edmx</DependentUpon>
-      <LastGenOutput>UniversityModel.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-2.1.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

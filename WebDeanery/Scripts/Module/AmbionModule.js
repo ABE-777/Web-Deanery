@@ -22,9 +22,9 @@
         }
     });
 
-    //self.OpenItem = function (data) {
-    //    self.itemText("Opened" + data.FacultetAnun);
-    //};
+    self.OpenItem = function (data) {
+        self.itemText("Opened" + data.FacultetAnun);
+    };
 
     //self.CheckItem = function (data) {
     //    return true;

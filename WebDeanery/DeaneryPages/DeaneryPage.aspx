@@ -5,9 +5,9 @@
 <p align="center">
     
     <asp:ImageButton ID="ImageButton1" runat="server" 
-    ImageUrl="/Resources/01.jpg"   
-    onmouseover="this.src='/Resources/1.jpg'" 
-    onmouseout="this.src='/Resources/01.jpg'"/>
+    ImageUrl="/Resources/diploma_suppliment.jpg"   
+    onmouseover="this.src='/Resources/diploma_suppliment2.jpg'" 
+    onmouseout="this.src='/Resources/diploma_suppliment.jpg'"/>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:ImageButton ID="ImageButton2" runat="server" 
         ImageUrl="/Resources/02.jpg"   

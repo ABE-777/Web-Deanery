@@ -1,50 +1,68 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AmbionPages/Ambion.Master" AutoEventWireup="true" CodeBehind="AmbionAttendance.aspx.cs" Inherits="WebDeanery.AmbionPages.AmbionAttendance" %>
-<%@ Import Namespace="System.Web.Services" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    
-    <script type="text/javascript" src="../Scripts/jquery-2.1.1.js"></script>
-    <script type="text/javascript" src="../Scripts/knockout-3.1.0.debug.js"></script>
-    <script type="text/javascript" src="../Scripts/Module/AmbionModule.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            ko.applyBindings(new AmbionModel(), document.getElementById("chooseDiv"));
-        })
-    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="chooseDiv">
-        <div>
-        <input type="radio" name="Study" value="College" checked="checked" data-bind="click: CheckItem"/>College
-        <input type="radio" name="Study" value="Bachelor" data-bind="click: CheckItem"/>Bachelor
-            <input type="radio" name="Study" value="Magistr" data-bind="click: CheckItem"/>Magistr
-            <input type="radio" name="Study" value="Aspirant" data-bind="click: CheckItem"/>Aspirant
-        </div>
-        <ul data-bind="foreach: items">
-            <li data-bind="click: $root.OpenItem">
-                <p data-bind="text: FacultetAnun"></p>
-            </li>
-        </ul>
-        <div>
-            <h1 data-bind="text: itemText"></h1>
-        </div>
-    </div>
+<p align="center">
+    
+    <asp:ImageButton ID="ImageButton1" runat="server" 
+    ImageUrl="/Resources/01.jpg"   
+    onmouseover="this.src='/Resources/1.jpg'" 
+    onmouseout="this.src='/Resources/01.jpg'" 
+        PostBackUrl="~/AdminPages/AddMission.aspx"/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:ImageButton ID="ImageButton2" runat="server" 
+        ImageUrl="/Resources/02.jpg"   
+        onmouseover="this.src='/Resources/2.jpg'" 
+        onmouseout="this.src='/Resources/02.jpg'" 
+        PostBackUrl="~/AdminPages/StudentDetails.aspx"/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:ImageButton ID="ImageButton3" runat="server" 
+        ImageUrl="/Resources/03.jpg"   
+        onmouseover="this.src='/Resources/3.jpg'" 
+        onmouseout="this.src='/Resources/03.jpg'" 
+        PostBackUrl="~/AdminPages/ManageUsers.aspx"/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:ImageButton ID="ImageButton4" runat="server" 
+        ImageUrl="/Resources/04.jpg"   
+        onmouseover="this.src='/Resources/4.jpg'" 
+        onmouseout="this.src='/Resources/04.jpg'" 
+        PostBackUrl="~/AdminPages/ManageNews.aspx"/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:ImageButton ID="ImageButton5" runat="server" 
+        ImageUrl="/Resources/05.jpg"   
+        onmouseover="this.src='/Resources/5.jpg'" 
+        onmouseout="this.src='/Resources/05.jpg'"
+        ToolTip="Расписание" PostBackUrl="~/AdminPages/Examinations.aspx" />
+    
+    </p>
+    <p align="center">
+      <asp:ImageButton ID="ImageButton6" runat="server" 
+    ImageUrl="/Resources/06.jpg"   
+    onmouseover="this.src='/Resources/6.jpg'" 
+    onmouseout="this.src='/Resources/06.jpg'"/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:ImageButton ID="ImageButton7" runat="server" 
+        ImageUrl="/Resources/07.jpg"   
+        onmouseover="this.src='/Resources/7.jpg'" 
+        onmouseout="this.src='/Resources/07.jpg'" PostBackUrl="~/AmbionPages/AmbionAttendance.aspx"/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:ImageButton ID="ImageButton8" runat="server" 
+        ImageUrl="/Resources/08.jpg"   
+        onmouseover="this.src='/Resources/8.jpg'" 
+        onmouseout="this.src='/Resources/08.jpg'"/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:ImageButton ID="ImageButton9" runat="server" 
+        ImageUrl="/Resources/09.jpg"   
+        onmouseover="this.src='/Resources/9.jpg'" 
+        onmouseout="this.src='/Resources/09.jpg'"/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:ImageButton ID="ImageButton10" runat="server" 
+        ImageUrl="/Resources/010.jpg"   
+        onmouseover="this.src='/Resources/10.jpg'" 
+        onmouseout="this.src='/Resources/010.jpg'" />
+  </p>
 </asp:Content>
-<%-- <asp:ListBox ID="Fakultet" runat="server" DataSourceID="SqlDataSource1"  
-            Height="123px" Width="265px" DataTextField="Ֆակուլտետի_անվանումը" 
-            DataValueField="Ֆակուլտետի_անվանումը" 
-            onselectedindexchanged="Fakultet_SelectedIndexChanged">
-        </asp:ListBox>
-        <asp:ListBox ID="Spec" runat="server" DataSourceID="SqlDataSource2" 
-            Height="123px" style="margin-top: 0px" 
-            Width="265px" DataTextField="Մասնագիտություն" 
-            DataValueField="Մասնագիտություն">
-        </asp:ListBox>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-            ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" 
-            SelectCommand="SELECT [Մասնագիտություն] FROM [Masnagitucyun]">
-        </asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-            SelectCommand="SELECT [Ֆակուլտետի անվանումը] AS Ֆակուլտետի_անվանումը FROM [Fakultet]">
-        </asp:SqlDataSource>--%>
+
+
+
+

@@ -37,8 +37,7 @@
         }
               #search_box img {float:right;margin:0 0 0 0;}
               #search_box {background:url(/Resources/search.png) 0 0 no-repeat;height:28px;margin:0 auto;position:relative;width:307px;top: -77px;left: 318px;}
-              #search_box input{border-style:  none; border-color: inherit; border-width: 0; font-family:Tahoma,Arial,Helvetica,sans-serif;font-size:16px;line-height:16px;margin:2px 0 2px 5px;outline:none;padding:2px;width:266px;top: -15px; left: 265px; -webkit-appearance:none;-webkit-border-radius:0; }
-              #txt_search{width: 270px;}
+              #search_box input{border-style:none; font-family:Tahoma,Arial,Helvetica,sans-serif;font-size:16px;margin:4px 0 2px 5px;outline:none;width:266px;}
   </style>
 <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server" >
@@ -87,13 +86,30 @@
       <p style="margin: 10px"></p>
       <div align="center">
          <div id="UserFrame" style="background-image: url('/Resources/UserFrame.png'); height: 34px; width: 1004px; text-align: center; color: #D9AC29; font-size: large; font-family: 'Times New Roman', Times, serif; font-style: normal; font-weight: bold; padding-top: 3px; background-repeat: no-repeat;" align="left"> 
-              Wellcome<asp:LoginName ID="LoginName1" runat="server" />
+              Welcome <asp:LoginName ID="LoginName1" runat="server" />
          </div>
       </div>
       <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">         
       </asp:ContentPlaceHolder>
     </form>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Menu img").mouseover(function () {
+
+                var aa = $(this).attr("src");
+                var bb = aa.substr(0, aa.length - 4);
+                bb = bb.concat("2.jpg");
+                $(this).attr("src", bb);
+            })
+            $("#Menu img").mouseout(function () {
+
+                var aa = $(this).attr("src");
+                var bb = aa.substr(0, aa.length - 5);
+                bb = bb.concat(".jpg");
+                $(this).attr("src", bb);
+            })
+        })
+    </script>
 </body>
 </html>
-
-
