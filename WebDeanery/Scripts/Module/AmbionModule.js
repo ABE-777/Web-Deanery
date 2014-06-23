@@ -26,9 +26,9 @@
         self.itemText("Opened" + data.FacultetAnun);
     };
 
-    //self.CheckItem = function (data) {
-    //    return true;
-    //};
+    self.CheckItem = function (data) {
+        return true;
+    };
     
 
 

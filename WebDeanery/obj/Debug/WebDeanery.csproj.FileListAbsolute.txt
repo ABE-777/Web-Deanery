@@ -53,3 +53,12 @@ C:\Users\user\Desktop\Project\WebDeanery\bin\ru\EntityFramework.resources.dll
 C:\Users\user\Desktop\Project\WebDeanery\obj\Debug\WebDeanery.csprojResolveAssemblyReference.cache
 C:\Users\user\Desktop\Project\WebDeanery\obj\Debug\WebDeanery.dll
 C:\Users\user\Desktop\Project\WebDeanery\obj\Debug\WebDeanery.pdb
+C:\Users\Developer\Documents\GitHub\Web-Deanery\WebDeanery\bin\WebDeanery.dll.config
+C:\Users\Developer\Documents\GitHub\Web-Deanery\WebDeanery\bin\WebDeanery.dll
+C:\Users\Developer\Documents\GitHub\Web-Deanery\WebDeanery\bin\WebDeanery.pdb
+C:\Users\Developer\Documents\GitHub\Web-Deanery\WebDeanery\bin\EntityFramework.dll
+C:\Users\Developer\Documents\GitHub\Web-Deanery\WebDeanery\bin\EntityFramework.xml
+C:\Users\Developer\Documents\GitHub\Web-Deanery\WebDeanery\bin\ru\EntityFramework.resources.dll
+C:\Users\Developer\Documents\GitHub\Web-Deanery\WebDeanery\obj\Debug\WebDeanery.csprojResolveAssemblyReference.cache
+C:\Users\Developer\Documents\GitHub\Web-Deanery\WebDeanery\obj\Debug\WebDeanery.dll
+C:\Users\Developer\Documents\GitHub\Web-Deanery\WebDeanery\obj\Debug\WebDeanery.pdb
