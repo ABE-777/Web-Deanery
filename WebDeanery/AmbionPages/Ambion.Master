@@ -1,6 +1,4 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Ambion.master.cs" Inherits="WebDeanery.AmbionPages.Ambion" %>
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <script runat="server">  
     protected void Button_Command(Object sender, System.Web.UI.WebControls.CommandEventArgs e) 
@@ -9,7 +7,6 @@
         Response.Redirect("~/Default.aspx");
     }  
 </script>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <style type="text/css">
@@ -30,8 +27,7 @@
             padding-top:0px;
             position:relative;
             margin-left:50%;
-            left:-487PX;
-            display:block:inline;
+            left:-487px;
         }
         ul > li {
             list-style-type:none;
@@ -59,12 +55,12 @@
      <div id="HeadMenu" style=" background-color:#7a1310; width:974px; height: 26px; ">
          <asp:Menu ID="Menu" runat="server" Orientation="Horizontal" StaticEnableDefaultPopOutImage="False">
                  <Items>
-                     <asp:MenuItem ImageUrl="~/Resources/Head/dasboard.jpg" Selectable="False"></asp:MenuItem>
-                     <asp:MenuItem ImageUrl="~/Resources/Head/students.jpg" Selectable="False"></asp:MenuItem>
-                     <asp:MenuItem ImageUrl="~/Resources/Head/attendance.jpg" Selectable="False">
+                     <asp:MenuItem ImageUrl="~/Resources/Head/dasboard.jpg"  NavigateUrl="AmbionPage.aspx"></asp:MenuItem>
+                     <asp:MenuItem ImageUrl="~/Resources/Head/students.jpg" ></asp:MenuItem>
+                     <asp:MenuItem ImageUrl="~/Resources/Head/attendance.jpg" >
                          <asp:MenuItem Text="Создать элемент" Value="Создать элемент"></asp:MenuItem>
                      </asp:MenuItem>
-                     <asp:MenuItem ImageUrl="~/Resources/Head/settings.jpg" Selectable="False">
+                     <asp:MenuItem ImageUrl="~/Resources/Head/settings.jpg" >
                          <asp:MenuItem Text="Создать элемент" Value="Создать элемент"></asp:MenuItem>
                      </asp:MenuItem>
                      <asp:MenuItem ImageUrl="~/Resources/Head/more.jpg">
@@ -97,14 +93,12 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $("#Menu img").mouseover(function () {
-
                 var aa = $(this).attr("src");
                 var bb = aa.substr(0, aa.length - 4);
                 bb = bb.concat("2.jpg");
                 $(this).attr("src", bb);
             })
             $("#Menu img").mouseout(function () {
-
                 var aa = $(this).attr("src");
                 var bb = aa.substr(0, aa.length - 5);
                 bb = bb.concat(".jpg");

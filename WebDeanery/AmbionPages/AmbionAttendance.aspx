@@ -2,7 +2,6 @@
 <%@ Import Namespace="System.Web.Services" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
     <script type="text/javascript" src="../Scripts/jquery-2.1.1.js"></script>
     <script type="text/javascript" src="../Scripts/knockout-3.1.0.debug.js"></script>
     <script type="text/javascript" src="../Scripts/Module/AmbionModule.js"></script>
@@ -14,40 +13,54 @@
     <style type="text/css">
         input[type=radio]:not(old){
   width   : 15px;
-  margin  : 0;
-  padding : 0;
   opacity : 0;
 }
 
-        input[type=radio   ]:not(old) + label{
+        input[type=radio]:not(old) + label{
   display      : inline-block;
   margin-left  : -15px;
   padding-left : 15px;
-  background   : url(/Resources/AmbionRes/01.png) no-repeat 0 0;
-  line-height  : 24px;
+  background   : url(/Resources/AmbionRes/02.png) no-repeat 0 0;
+  line-height  : 15px;
+}
+         input[type=radio]:not(old):checked:hover + label{
+   background   : url(/Resources/AmbionRes/03.png) no-repeat;
 }
         input[type=radio]:not(old):checked + label{
-  background-position : 0 -48px;
+   background   : url(/Resources/AmbionRes/03.png) no-repeat;
 }
+            input[type=radio]:not(old):hover + label {
+                 background   : url(/Resources/AmbionRes/01.png) no-repeat;
+            }
+         #chooseDiv {
+            padding-top:0px;
+            position:relative;
+            margin-left:50%;
+            left:-487px;
+        }
+        .RadioDivClass {
+            margin-left:4px;
+            margin-top:10px;
+        }
+         .RadioDivClass >label{
+            color: #D9AC29; 
+            font-size: large;
+            font-weight:bold;
+            margin-right:60px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="chooseDiv">
-        <div align="center" >
-
-             <input id="College" type="radio" name="field" value="College"/>
-             <label for="College">College</label>
-            <input id="Bachelor" type="radio" name="field" value="Bachelor"/>
-             <label for="Bachelor">Bachelor</label>
-            <input id="Magistr" type="radio" name="field" value="Magistr"/>
-             <label for="Magistr">Magistr</label>
-            <input id="Aspirant" type="radio" name="field" value="Aspirant"/>
-             <label for="Aspirant">Aspirant</label>
-           <%-- <label><input type="radio"  checked="checked" name="mygroup" value="College" data-bind="checked: SelectedAttributeValueId" class="RadioClass" hidden src="../Resources/AmbionRes/01.png" style="background-image: url('../Resources/AmbionRes/01.png'); background-repeat: no-repeat"  /> College</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-            <label><input type="radio" name="mygroup" value="Bachelor" data-bind="checked: SelectedAttributeValueId" /> Bachelor</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-            <label><input type="radio" name="mygroup" value="Magistr" data-bind="checked: SelectedAttributeValueId" /> Magistr</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-            <label><input type="radio" name="mygroup" value="Aspirant" data-bind="checked: SelectedAttributeValueId" /> Aspirant</label>&nbsp; 
-            <hr />--%>
+        <div align="center"  style="width:974px; height: 26px;" class="RadioDivClass">
+             <input id="College" type="radio" name="field" value="College" checked="checked" data-bind="checked: SelectedAttributeValueId" />
+             <label for="College" >&nbsp;College</label>
+            <input id="Bachelor" type="radio" name="field" value="Bachelor" data-bind="checked: SelectedAttributeValueId"/>
+             <label for="Bachelor">&nbsp;Bachelor</label>
+            <input id="Magistr" type="radio" name="field" value="Magistr" data-bind="checked: SelectedAttributeValueId"/>
+             <label for="Magistr">&nbsp;Magistr</label>
+            <input id="Aspirant" type="radio" name="field" value="Aspirant" data-bind="checked: SelectedAttributeValueId"/>
+             <label for="Aspirant"> &nbsp;Aspirant</label>
         </div>
         <ul data-bind="foreach: items">
             <li data-bind="click: $root.OpenItem">

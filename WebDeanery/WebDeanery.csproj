@@ -76,6 +76,7 @@
     <Content Include="AdminPages\ManageUsers.aspx" />
     <Content Include="AdminPages\StudentDetails.aspx" />
     <Content Include="AmbionPages\AmbionAttendance.aspx" />
+    <Content Include="AmbionPages\AmbionAttendanceCheck.aspx" />
     <Content Include="AmbionPages\AmbionPage.aspx" />
     <Content Include="DeaneryPages\Attendance.aspx" />
     <Content Include="DeaneryPages\DeaneryPage.aspx" />
@@ -262,6 +263,13 @@
     </Compile>
     <Compile Include="AmbionPages\AmbionAttendance.aspx.designer.cs">
       <DependentUpon>AmbionAttendance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AmbionPages\AmbionAttendanceCheck.aspx.cs">
+      <DependentUpon>AmbionAttendanceCheck.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AmbionPages\AmbionAttendanceCheck.aspx.designer.cs">
+      <DependentUpon>AmbionAttendanceCheck.aspx</DependentUpon>
     </Compile>
     <Compile Include="AmbionPages\AmbionPage.aspx.cs">
       <DependentUpon>AmbionPage.aspx</DependentUpon>

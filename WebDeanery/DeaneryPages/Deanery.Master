@@ -58,12 +58,12 @@
      <div id="HeadMenu" style=" background-color:#7a1310; width:974px; height: 26px; ">
          <asp:Menu ID="Menu" runat="server" Orientation="Horizontal" StaticEnableDefaultPopOutImage="False">
                  <Items>
-                     <asp:MenuItem ImageUrl="~/Resources/Head/dasboard.jpg" Selectable="False"></asp:MenuItem>
-                     <asp:MenuItem ImageUrl="~/Resources/Head/students.jpg" Selectable="False"></asp:MenuItem>
-                     <asp:MenuItem ImageUrl="~/Resources/Head/attendance.jpg" Selectable="False">
+                     <asp:MenuItem ImageUrl="~/Resources/Head/dasboard.jpg" NavigateUrl="DeaneryPage.aspx"></asp:MenuItem>
+                     <asp:MenuItem ImageUrl="~/Resources/Head/students.jpg" ></asp:MenuItem>
+                     <asp:MenuItem ImageUrl="~/Resources/Head/attendance.jpg" >
                          <asp:MenuItem Text="Создать элемент" Value="Создать элемент"></asp:MenuItem>
                      </asp:MenuItem>
-                     <asp:MenuItem ImageUrl="~/Resources/Head/settings.jpg" Selectable="False">
+                     <asp:MenuItem ImageUrl="~/Resources/Head/settings.jpg" >
                          <asp:MenuItem Text="Создать элемент" Value="Создать элемент"></asp:MenuItem>
                      </asp:MenuItem>
                      <asp:MenuItem ImageUrl="~/Resources/Head/more.jpg">
