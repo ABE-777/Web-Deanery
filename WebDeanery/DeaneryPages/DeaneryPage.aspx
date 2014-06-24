@@ -2,6 +2,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <p style="margin: 10px"></p>
+      <div align="center">
+         <div id="NewsFrame" style="background-image: url('/Resources/NewsFrame.png'); height: 60px; width: 1004px;" align="left"> 
+         </div>
+      </div>
+      <p style="margin: 10px"></p>
+      <div align="center">
+         <div id="UserFrame" style="background-image: url('/Resources/UserFrame.png'); height: 34px; width: 1004px; text-align: center; color: #D9AC29; font-size: large; font-family: 'Times New Roman', Times, serif; font-style: normal; font-weight: bold; padding-top: 3px; background-repeat: no-repeat;" align="left"> 
+              Welcome <asp:LoginName ID="LoginName1" runat="server" />
+         </div>
+      </div>
 <p align="center">
     
     <asp:ImageButton ID="ImageButton1" runat="server" 

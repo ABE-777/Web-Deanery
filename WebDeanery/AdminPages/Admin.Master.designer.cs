@@ -67,15 +67,6 @@ namespace WebDeanery.AdminPages {
         protected global::System.Web.UI.WebControls.ImageButton LogoutButton;
         
         /// <summary>
-        /// LoginName1 элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginName LoginName1;
-        
-        /// <summary>
         /// ContentPlaceHolder1 элемент управления.
         /// </summary>
         /// <remarks>

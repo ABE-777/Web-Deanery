@@ -80,7 +80,6 @@
     <Content Include="AmbionPages\AmbionPage.aspx" />
     <Content Include="DeaneryPages\Attendance.aspx" />
     <Content Include="DeaneryPages\DeaneryPage.aspx" />
-    <Content Include="DeaneryPages\test.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="LogoutClass.css" />
@@ -328,13 +327,6 @@
     </Compile>
     <Compile Include="DeaneryPages\DeaneryPage.aspx.designer.cs">
       <DependentUpon>DeaneryPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DeaneryPages\test.aspx.cs">
-      <DependentUpon>test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DeaneryPages\test.aspx.designer.cs">
-      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

@@ -78,17 +78,7 @@
             onmouseout="this.src='/Resources/Head/log out.jpg'"
              OnCommand="Button_Command" CssClass="LogoutClass" />
       </div>
-      <p style="margin: 10px"></p>
-      <div align="center">
-         <div id="NewsFrame" style="background-image: url('/Resources/NewsFrame.png'); height: 60px; width: 1004px;" align="left"> 
-         </div>
-      </div>
-      <p style="margin: 10px"></p>
-      <div align="center">
-         <div id="UserFrame" style="background-image: url('/Resources/UserFrame.png'); height: 34px; width: 1004px; text-align: center; color: #D9AC29; font-size: large; font-family: 'Times New Roman', Times, serif; font-style: normal; font-weight: bold; padding-top: 3px; background-repeat: no-repeat;" align="left"> 
-              Welcome <asp:LoginName ID="LoginName1" runat="server" />
-         </div>
-      </div>
+      
       <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">         
       </asp:ContentPlaceHolder>
     </form>
