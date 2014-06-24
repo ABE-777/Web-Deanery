@@ -62,13 +62,27 @@
             <input id="Aspirant" type="radio" name="field" value="Aspirant" data-bind="checked: SelectedAttributeValueId"/>
              <label for="Aspirant"> &nbsp;Aspirant</label>
         </div>
-        <ul data-bind="foreach: items">
-            <li data-bind="click: $root.OpenItem">
-                <p data-bind="text: FacultetAnun"></p>
-            </li>
-        </ul>
-        <div>
-            <h1 data-bind="text: itemText"></h1>
+        <div class="left">
+            <ul data-bind="foreach: Facultets">
+                <li>
+                    <div class="facultetName" data-bind="text: FacultetName, click: $root.OpenItem">
+                    </div>
+
+                </li>
+            </ul>
         </div>
-    </div>
-</asp:Content>
+        <div class="left">
+            <p data-bind="text: itemText"></p>
+             <ul data-bind="foreach: Masnagitutyun">
+                <li>
+                    <div class="facultetName" data-bind="text: Masnagitutyun">
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+        <div class="left">
+            <h3>assdasdasd</h3>
+        </div>
+        </div>
+  </asp:Content>

@@ -4,64 +4,99 @@
     <EntitySetMapping Name="Ambion">
       <EntityTypeMapping TypeName="UniversityModel.Ambion">
         <MappingFragment StoreEntitySet="Ambion">
-          <ScalarProperty Name="AmbionID" ColumnName="AmbionID" />
           <ScalarProperty Name="AmbionAnun" ColumnName="AmbionAnun" />
+          <ScalarProperty Name="AmbionID" ColumnName="AmbionID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Ararka">
       <EntityTypeMapping TypeName="UniversityModel.Ararka">
         <MappingFragment StoreEntitySet="Ararka">
+          <ScalarProperty Name="ArarkaName" ColumnName="ArarkaName" />
           <ScalarProperty Name="ArarkaID" ColumnName="ArarkaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArarkaAmbion">
+      <EntityTypeMapping TypeName="UniversityModel.ArarkaAmbion">
+        <MappingFragment StoreEntitySet="ArarkaAmbion">
           <ScalarProperty Name="ArarkaAnun" ColumnName="ArarkaAnun" />
+          <ScalarProperty Name="ArarkaID" ColumnName="ArarkaID" />
+          <ScalarProperty Name="Ambion" ColumnName="Ambion" />
+          <ScalarProperty Name="AmbionID" ColumnName="AmbionID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Fakultet">
       <EntityTypeMapping TypeName="UniversityModel.Fakultet">
         <MappingFragment StoreEntitySet="Fakultet">
-          <ScalarProperty Name="FacultetID" ColumnName="FacultetID" />
-          <ScalarProperty Name="FacultetAnun" ColumnName="FacultetAnun" />
           <ScalarProperty Name="FacultetKrchat" ColumnName="FacultetKrchat" />
+          <ScalarProperty Name="FacultetAnun" ColumnName="FacultetAnun" />
+          <ScalarProperty Name="FacultetID" ColumnName="FacultetID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FakultetArarka">
+      <EntityTypeMapping TypeName="UniversityModel.FakultetArarka">
+        <MappingFragment StoreEntitySet="FakultetArarka">
+          <ScalarProperty Name="G_L_Jam" ColumnName="G/L/Jam" />
+          <ScalarProperty Name="DasJam" ColumnName="DasJam" />
+          <ScalarProperty Name="ShabJamQanak" ColumnName="ShabJamQanak" />
+          <ScalarProperty Name="Ambion" ColumnName="Ambion" />
+          <ScalarProperty Name="AmbionID" ColumnName="AmbionID" />
+          <ScalarProperty Name="ArarkaAnun" ColumnName="ArarkaAnun" />
+          <ScalarProperty Name="ArarkaID" ColumnName="ArarkaID" />
+          <ScalarProperty Name="Ararka_Praktika" ColumnName="Ararka/Praktika" />
+          <ScalarProperty Name="H_H" ColumnName="H/H" />
+          <ScalarProperty Name="ShabatneriQanak" ColumnName="ShabatneriQanak" />
+          <ScalarProperty Name="Kisamyak" ColumnName="Kisamyak" />
+          <ScalarProperty Name="Kisamyak_1_2_" ColumnName="Kisamyak(1,2)" />
+          <ScalarProperty Name="Kurs" ColumnName="Kurs" />
+          <ScalarProperty Name="Masnagitutyun" ColumnName="Masnagitutyun" />
+          <ScalarProperty Name="MasnagitutyunID" ColumnName="MasnagitutyunID" />
+          <ScalarProperty Name="Fakultet" ColumnName="Fakultet" />
+          <ScalarProperty Name="FackultetID" ColumnName="FackultetID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Masnagitucyun">
       <EntityTypeMapping TypeName="UniversityModel.Masnagitucyun">
         <MappingFragment StoreEntitySet="Masnagitucyun">
-          <ScalarProperty Name="MasnagitutyunID" ColumnName="MasnagitutyunID" />
-          <ScalarProperty Name="Masnagitutyun" ColumnName="Masnagitutyun" />
           <ScalarProperty Name="MasnagitutyunKrchat" ColumnName="MasnagitutyunKrchat" />
+          <ScalarProperty Name="Masnagitutyun" ColumnName="Masnagitutyun" />
+          <ScalarProperty Name="MasnagitutyunID" ColumnName="MasnagitutyunID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Student">
       <EntityTypeMapping TypeName="UniversityModel.Student">
         <MappingFragment StoreEntitySet="Student">
-          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
-          <ScalarProperty Name="StudentCode" ColumnName="StudentCode" />
-          <ScalarProperty Name="Azganun" ColumnName="Azganun" />
-          <ScalarProperty Name="Anun" ColumnName="Anun" />
-          <ScalarProperty Name="Hayranun" ColumnName="Hayranun" />
-          <ScalarProperty Name="Ser" ColumnName="Ser" />
-          <ScalarProperty Name="Bithday" ColumnName="Bithday" />
-          <ScalarProperty Name="Tcnndavayr" ColumnName="Tcnndavayr" />
-          <ScalarProperty Name="Qaxaqaciutyun" ColumnName="Qaxaqaciutyun" />
-          <ScalarProperty Name="Incheavartel_dproc_" ColumnName="Incheavartel(dproc)" />
-          <ScalarProperty Name="AvarteluTarin__dproc_" ColumnName="AvarteluTarin (dproc)" />
-          <ScalarProperty Name="AvartakanVkayakaniHamar" ColumnName="AvartakanVkayakaniHamar" />
-          <ScalarProperty Name="BnakutyanVayr" ColumnName="BnakutyanVayr" />
-          <ScalarProperty Name="GrancmanVayr" ColumnName="GrancmanVayr" />
-          <ScalarProperty Name="Herbjayin" ColumnName="Herbjayin" />
-          <ScalarProperty Name="Mail" ColumnName="Mail" />
-          <ScalarProperty Name="YndunveluTarin" ColumnName="YndunveluTarin" />
-          <ScalarProperty Name="HramanTiv" ColumnName="HramanTiv" />
-          <ScalarProperty Name="HramaniOrAmisTari" ColumnName="HramaniOrAmisTari" />
-          <ScalarProperty Name="UsucmanDzev" ColumnName="UsucmanDzev" />
-          <ScalarProperty Name="YndAvartel" ColumnName="YndAvartel" />
-          <ScalarProperty Name="StugmanGrquyk" ColumnName="StugmanGrquyk" />
-          <ScalarProperty Name="AvarteluTarin" ColumnName="AvarteluTarin" />
           <ScalarProperty Name="Nkar" ColumnName="Nkar" />
+          <ScalarProperty Name="AvarteluTarin" ColumnName="AvarteluTarin" />
+          <ScalarProperty Name="StugmanGrquyk" ColumnName="StugmanGrquyk" />
+          <ScalarProperty Name="YndAvartel" ColumnName="YndAvartel" />
+          <ScalarProperty Name="UsucmanDzev" ColumnName="UsucmanDzev" />
+          <ScalarProperty Name="HramaniOrAmisTari" ColumnName="HramaniOrAmisTari" />
+          <ScalarProperty Name="HramanTiv" ColumnName="HramanTiv" />
+          <ScalarProperty Name="YndunveluTarin" ColumnName="YndunveluTarin" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Herbjayin" ColumnName="Herbjayin" />
+          <ScalarProperty Name="GrancmanVayr" ColumnName="GrancmanVayr" />
+          <ScalarProperty Name="BnakutyanVayr" ColumnName="BnakutyanVayr" />
+          <ScalarProperty Name="AvartakanVkayakaniHamar" ColumnName="AvartakanVkayakaniHamar" />
+          <ScalarProperty Name="AvarteluTarin__dproc_" ColumnName="AvarteluTarin (dproc)" />
+          <ScalarProperty Name="Incheavartel_dproc_" ColumnName="Incheavartel(dproc)" />
+          <ScalarProperty Name="Qaxaqaciutyun" ColumnName="Qaxaqaciutyun" />
+          <ScalarProperty Name="Tcnndavayr" ColumnName="Tcnndavayr" />
+          <ScalarProperty Name="Bithday" ColumnName="Bithday" />
+          <ScalarProperty Name="Ser" ColumnName="Ser" />
+          <ScalarProperty Name="Hayranun" ColumnName="Hayranun" />
+          <ScalarProperty Name="Anun" ColumnName="Anun" />
+          <ScalarProperty Name="Azganun" ColumnName="Azganun" />
+          <ScalarProperty Name="StudentCode" ColumnName="StudentCode" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

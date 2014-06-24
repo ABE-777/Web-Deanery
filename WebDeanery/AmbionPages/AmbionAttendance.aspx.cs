@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Services;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -14,7 +15,8 @@ namespace WebDeanery.AmbionPages
 {
     public partial class AmbionAttendance : System.Web.UI.Page
     {
-        static readonly UniversityEntities Db = new UniversityEntities();
+        private static readonly UniversityEntities Db = new UniversityEntities();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -25,13 +27,38 @@ namespace WebDeanery.AmbionPages
             //Изменить значения следующего листа
         }
 
+
+
         [WebMethod]
-        public static List<Fakultet> GetStudent()
+        public static DataModel GetFacultet()
         {
-            return Db.Fakultet.ToList();
+            var facultets = new DataModel
+            {
+                Facultet = Db.Fakultet.Select(f => new FacultetModel
+                {
+                    FacultetId = f.FacultetID,
+                    FacultetName = f.FacultetAnun,
+                    ShortName = f.FacultetKrchat
+                }).ToList(),
+            };
+            return facultets;
+        }
+
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json, XmlSerializeString = false)]
+        public static List<MasnagitutyunModel> GetMasnagitutyun(int Id)
+        {
+            var lst = (from m in Db.FakultetArarka
+                       where m.FackultetID == Id
+                       select new MasnagitutyunModel
+                       {
+                           MasnagitutyunId = (int)m.MasnagitutyunID,
+                           Masnagitutyun = m.Masnagitutyun
+                       }).Distinct().ToList();
+
+            return lst;
+
         }
 
     }
-
-
 }

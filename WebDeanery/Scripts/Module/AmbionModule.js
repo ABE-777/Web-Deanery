@@ -1,19 +1,18 @@
 ﻿function AmbionModel() {
     var self = this;
-    //$.get("AmbionAttendance.aspx", function (data) {
-       
-    //});
-    self.items = ko.observableArray();
+    self.Facultets = ko.observableArray();
+    self.Masnagitutyun = ko.observableArray();
     self.itemText = ko.observable();
-    
+    self.year = ko.observable("");
+
     $.ajax({
         type: "POST",
-        url: 'AmbionAttendance.aspx/GetStudent',
+        url: 'AmbionAttendance.aspx/GetFacultet',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data) {
-            $.each(data.d, function(key, value) {
-                ko.toJSON(self.items.push(value));
+            $.each(data.d.Facultet, function (key, value) {
+                ko.toJSON(self.Facultets.push(value));
             });
             $($("input:radio")[0]).attr("checked", "true");
         },
@@ -22,14 +21,34 @@
         }
     });
 
-    self.OpenItem = function (data) {
-        self.itemText("Opened" + data.FacultetAnun);
+
+
+    self.OpenItem = function (data, event) {
+        self.Masnagitutyun.removeAll();
+        $.ajax({
+            type: "GET",
+            url: 'AmbionAttendance.aspx/GetMasnagitutyun?ID=' + data.FacultetId,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                $.each(data.d, function (key, value) {
+                    ko.toJSON(self.Masnagitutyun.push(value));
+                });
+                $($("input:radio")[0]).attr("checked", "true");
+            },
+            error: function (err) {
+                alert(err.status + " - " + err.statusText);
+            }
+        });
+        self.itemText("Opened" + data.FacultetName);
+        $(".facultetName>img").remove();
+        $(event.target).append('<img src="/Resources/Table/ptichka.png"/>');
     };
 
-    self.CheckItem = function (data) {
-        return true;
-    };
-    
+    //self.CheckItem = function (data) {
+    //    return true;
+    //};
+
 
 
     self.SelectedAttributeValueIds = ko.observableArray();

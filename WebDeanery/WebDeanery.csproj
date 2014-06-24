@@ -283,7 +283,13 @@
     <Compile Include="DataLayer\Ararka.cs">
       <DependentUpon>UniversityModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataLayer\ArarkaAmbion.cs">
+      <DependentUpon>UniversityModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataLayer\Fakultet.cs">
+      <DependentUpon>UniversityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\FakultetArarka.cs">
       <DependentUpon>UniversityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataLayer\Masnagitucyun.cs">
@@ -342,7 +348,9 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataModel.cs" />
     <Compile Include="Models\FacultetModel.cs" />
+    <Compile Include="Models\MasnagitutyunModel.cs" />
     <Compile Include="ParentsPages\Parent.Master.cs">
       <DependentUpon>Parent.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

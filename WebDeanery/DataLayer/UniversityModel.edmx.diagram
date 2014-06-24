@@ -5,11 +5,19 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="11f3516f2eae4893a90cd02ed75b1e8d" Name="Diagram1">
-        <EntityTypeShape EntityType="UniversityModel.Ambion" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="UniversityModel.Ararka" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="UniversityModel.Fakultet" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="UniversityModel.Masnagitucyun" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="UniversityModel.Student" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversityModel.Ambion" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="UniversityModel.Ararka" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UniversityModel.ArarkaAmbion" Width="1.5" PointX="6" PointY="5.5" />
+        <EntityTypeShape EntityType="UniversityModel.Fakultet" Width="1.5" PointX="0.75" PointY="9" />
+        <EntityTypeShape EntityType="UniversityModel.FakultetArarka" Width="1.5" PointX="3" PointY="4" />
+        <EntityTypeShape EntityType="UniversityModel.Masnagitucyun" Width="1.5" PointX="0.75" PointY="2.5" />
+        <EntityTypeShape EntityType="UniversityModel.Student" Width="1.5" PointX="5.75" PointY="9" />
+        <AssociationConnector Association="UniversityModel.FK_ArarkaAmbion_Ambion" />
+        <AssociationConnector Association="UniversityModel.FK_FakultetArarka_Ambion" />
+        <AssociationConnector Association="UniversityModel.FK_ArarkaAmbion_Ararka" />
+        <AssociationConnector Association="UniversityModel.FK_FakultetArarka_Ararka" />
+        <AssociationConnector Association="UniversityModel.FK_FakultetArarka_Fakultet" />
+        <AssociationConnector Association="UniversityModel.FK_FakultetArarka_Masnagitucyun" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

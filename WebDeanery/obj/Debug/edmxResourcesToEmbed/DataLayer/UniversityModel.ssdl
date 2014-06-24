@@ -1,52 +1,77 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="UniversityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'University.dbo.Ambion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Ambion">
     <Key>
       <PropertyRef Name="AmbionID" />
     </Key>
-    <Property Name="AmbionID" Type="int" Nullable="false" />
+    <Property Name="AmbionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="AmbionAnun" Type="nchar" MaxLength="255" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'University.dbo.Ararka' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Ararka">
     <Key>
       <PropertyRef Name="ArarkaID" />
     </Key>
-    <Property Name="ArarkaID" Type="int" Nullable="false" />
-    <Property Name="ArarkaAnun" Type="nchar" MaxLength="255" />
+    <Property Name="ArarkaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArarkaName" Type="nvarchar" MaxLength="255" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'University.dbo.Dasaxos' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+  <EntityType Name="ArarkaAmbion">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AmbionID" Type="int" />
+    <Property Name="Ambion" Type="nvarchar" MaxLength="255" />
+    <Property Name="ArarkaID" Type="int" />
+    <Property Name="ArarkaAnun" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "University.dbo.Dasaxos" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
         <EntityType Name="Dasaxos">
           <Property Name="DasaxosID" Type="nchar" MaxLength="10" />
           <Property Name="AnunAzganun" Type="nchar" MaxLength="10" />
           <Property Name="Kochum" Type="nchar" MaxLength="10" />
         </EntityType>-->
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'University.dbo.Fakultet' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Fakultet">
     <Key>
       <PropertyRef Name="FacultetID" />
     </Key>
-    <Property Name="FacultetID" Type="int" Nullable="false" />
+    <Property Name="FacultetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FacultetAnun" Type="nchar" MaxLength="255" />
     <Property Name="FacultetKrchat" Type="char" MaxLength="2" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'University.dbo.Masnagitucyun' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="FakultetArarka">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FackultetID" Type="int" />
+    <Property Name="Fakultet" Type="nvarchar" MaxLength="255" />
+    <Property Name="MasnagitutyunID" Type="int" />
+    <Property Name="Masnagitutyun" Type="nvarchar" MaxLength="255" />
+    <Property Name="Kurs" Type="int" />
+    <Property Name="Kisamyak(1,2)" Type="int" />
+    <Property Name="Kisamyak" Type="int" />
+    <Property Name="ShabatneriQanak" Type="int" />
+    <Property Name="H/H" Type="int" />
+    <Property Name="Ararka/Praktika" Type="int" />
+    <Property Name="ArarkaID" Type="int" />
+    <Property Name="ArarkaAnun" Type="nvarchar" MaxLength="255" />
+    <Property Name="AmbionID" Type="int" />
+    <Property Name="Ambion" Type="nvarchar" MaxLength="255" />
+    <Property Name="ShabJamQanak" Type="float" />
+    <Property Name="DasJam" Type="float" />
+    <Property Name="G/L/Jam" Type="float" />
+  </EntityType>
   <EntityType Name="Masnagitucyun">
     <Key>
       <PropertyRef Name="MasnagitutyunID" />
     </Key>
-    <Property Name="MasnagitutyunID" Type="int" Nullable="false" />
+    <Property Name="MasnagitutyunID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Masnagitutyun" Type="nchar" MaxLength="255" />
     <Property Name="MasnagitutyunKrchat" Type="char" MaxLength="3" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'University.dbo.Student' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "University.dbo.Student" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
   <EntityType Name="Student">
     <Key>
       <PropertyRef Name="StudentID" />
@@ -77,33 +102,97 @@ warning 6002: The table/view 'University.dbo.Student' does not have a primary ke
     <Property Name="AvarteluTarin" Type="int" />
     <Property Name="Nkar" Type="image" />
   </EntityType>
+  <Association Name="FK_ArarkaAmbion_Ambion">
+    <End Role="Ambion" Type="Self.Ambion" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ArarkaAmbion" Type="Self.ArarkaAmbion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ambion">
+        <PropertyRef Name="AmbionID" />
+      </Principal>
+      <Dependent Role="ArarkaAmbion">
+        <PropertyRef Name="AmbionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArarkaAmbion_Ararka">
+    <End Role="Ararka" Type="Self.Ararka" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ArarkaAmbion" Type="Self.ArarkaAmbion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ararka">
+        <PropertyRef Name="ArarkaID" />
+      </Principal>
+      <Dependent Role="ArarkaAmbion">
+        <PropertyRef Name="ArarkaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FakultetArarka_Ambion">
+    <End Role="Ambion" Type="Self.Ambion" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FakultetArarka" Type="Self.FakultetArarka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ambion">
+        <PropertyRef Name="AmbionID" />
+      </Principal>
+      <Dependent Role="FakultetArarka">
+        <PropertyRef Name="AmbionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FakultetArarka_Ararka">
+    <End Role="Ararka" Type="Self.Ararka" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FakultetArarka" Type="Self.FakultetArarka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ararka">
+        <PropertyRef Name="ArarkaID" />
+      </Principal>
+      <Dependent Role="FakultetArarka">
+        <PropertyRef Name="ArarkaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FakultetArarka_Fakultet">
+    <End Role="Fakultet" Type="Self.Fakultet" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FakultetArarka" Type="Self.FakultetArarka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fakultet">
+        <PropertyRef Name="FacultetID" />
+      </Principal>
+      <Dependent Role="FakultetArarka">
+        <PropertyRef Name="FackultetID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FakultetArarka_Masnagitucyun">
+    <End Role="Masnagitucyun" Type="Self.Masnagitucyun" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FakultetArarka" Type="Self.FakultetArarka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Masnagitucyun">
+        <PropertyRef Name="MasnagitutyunID" />
+      </Principal>
+      <Dependent Role="FakultetArarka">
+        <PropertyRef Name="MasnagitutyunID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="UniversityModelStoreContainer">
-    <EntitySet Name="Ambion" EntityType="Self.Ambion" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-[Ambion].[AmbionID] AS [AmbionID], 
-[Ambion].[AmbionAnun] AS [AmbionAnun]
-FROM [dbo].[Ambion] AS [Ambion]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="Ararka" EntityType="Self.Ararka" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-[Ararka].[ArarkaID] AS [ArarkaID], 
-[Ararka].[ArarkaAnun] AS [ArarkaAnun]
-FROM [dbo].[Ararka] AS [Ararka]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="Fakultet" EntityType="Self.Fakultet" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-[Fakultet].[FacultetID] AS [FacultetID], 
-[Fakultet].[FacultetAnun] AS [FacultetAnun], 
-[Fakultet].[FacultetKrchat] AS [FacultetKrchat]
-FROM [dbo].[Fakultet] AS [Fakultet]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="Masnagitucyun" EntityType="Self.Masnagitucyun" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-[Masnagitucyun].[MasnagitutyunID] AS [MasnagitutyunID], 
-[Masnagitucyun].[Masnagitutyun] AS [Masnagitutyun], 
-[Masnagitucyun].[MasnagitutyunKrchat] AS [MasnagitutyunKrchat]
-FROM [dbo].[Masnagitucyun] AS [Masnagitucyun]</DefiningQuery>
-    </EntitySet>
+    <EntitySet Name="Ambion" EntityType="Self.Ambion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ararka" EntityType="Self.Ararka" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArarkaAmbion" EntityType="Self.ArarkaAmbion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fakultet" EntityType="Self.Fakultet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FakultetArarka" EntityType="Self.FakultetArarka" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Masnagitucyun" EntityType="Self.Masnagitucyun" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student" EntityType="Self.Student" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
 [Student].[StudentID] AS [StudentID], 
@@ -132,5 +221,29 @@ FROM [dbo].[Masnagitucyun] AS [Masnagitucyun]</DefiningQuery>
 [Student].[Nkar] AS [Nkar]
 FROM [dbo].[Student] AS [Student]</DefiningQuery>
     </EntitySet>
+    <AssociationSet Name="FK_ArarkaAmbion_Ambion" Association="Self.FK_ArarkaAmbion_Ambion">
+      <End Role="Ambion" EntitySet="Ambion" />
+      <End Role="ArarkaAmbion" EntitySet="ArarkaAmbion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArarkaAmbion_Ararka" Association="Self.FK_ArarkaAmbion_Ararka">
+      <End Role="Ararka" EntitySet="Ararka" />
+      <End Role="ArarkaAmbion" EntitySet="ArarkaAmbion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FakultetArarka_Ambion" Association="Self.FK_FakultetArarka_Ambion">
+      <End Role="Ambion" EntitySet="Ambion" />
+      <End Role="FakultetArarka" EntitySet="FakultetArarka" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FakultetArarka_Ararka" Association="Self.FK_FakultetArarka_Ararka">
+      <End Role="Ararka" EntitySet="Ararka" />
+      <End Role="FakultetArarka" EntitySet="FakultetArarka" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FakultetArarka_Fakultet" Association="Self.FK_FakultetArarka_Fakultet">
+      <End Role="Fakultet" EntitySet="Fakultet" />
+      <End Role="FakultetArarka" EntitySet="FakultetArarka" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FakultetArarka_Masnagitucyun" Association="Self.FK_FakultetArarka_Masnagitucyun">
+      <End Role="Masnagitucyun" EntitySet="Masnagitucyun" />
+      <End Role="FakultetArarka" EntitySet="FakultetArarka" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -4,54 +4,79 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="UniversityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'University.dbo.Ambion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+    <Schema Namespace="UniversityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityType Name="Ambion">
           <Key>
             <PropertyRef Name="AmbionID" />
           </Key>
-          <Property Name="AmbionID" Type="int" Nullable="false" />
+          <Property Name="AmbionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AmbionAnun" Type="nchar" MaxLength="255" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'University.dbo.Ararka' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Ararka">
           <Key>
             <PropertyRef Name="ArarkaID" />
           </Key>
-          <Property Name="ArarkaID" Type="int" Nullable="false" />
-          <Property Name="ArarkaAnun" Type="nchar" MaxLength="255" />
+          <Property Name="ArarkaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArarkaName" Type="nvarchar" MaxLength="255" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'University.dbo.Dasaxos' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ArarkaAmbion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AmbionID" Type="int" />
+          <Property Name="Ambion" Type="nvarchar" MaxLength="255" />
+          <Property Name="ArarkaID" Type="int" />
+          <Property Name="ArarkaAnun" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "University.dbo.Dasaxos" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
         <EntityType Name="Dasaxos">
           <Property Name="DasaxosID" Type="nchar" MaxLength="10" />
           <Property Name="AnunAzganun" Type="nchar" MaxLength="10" />
           <Property Name="Kochum" Type="nchar" MaxLength="10" />
         </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'University.dbo.Fakultet' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Fakultet">
           <Key>
             <PropertyRef Name="FacultetID" />
           </Key>
-          <Property Name="FacultetID" Type="int" Nullable="false" />
+          <Property Name="FacultetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FacultetAnun" Type="nchar" MaxLength="255" />
           <Property Name="FacultetKrchat" Type="char" MaxLength="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'University.dbo.Masnagitucyun' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="FakultetArarka">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FackultetID" Type="int" />
+          <Property Name="Fakultet" Type="nvarchar" MaxLength="255" />
+          <Property Name="MasnagitutyunID" Type="int" />
+          <Property Name="Masnagitutyun" Type="nvarchar" MaxLength="255" />
+          <Property Name="Kurs" Type="int" />
+          <Property Name="Kisamyak(1,2)" Type="int" />
+          <Property Name="Kisamyak" Type="int" />
+          <Property Name="ShabatneriQanak" Type="int" />
+          <Property Name="H/H" Type="int" />
+          <Property Name="Ararka/Praktika" Type="int" />
+          <Property Name="ArarkaID" Type="int" />
+          <Property Name="ArarkaAnun" Type="nvarchar" MaxLength="255" />
+          <Property Name="AmbionID" Type="int" />
+          <Property Name="Ambion" Type="nvarchar" MaxLength="255" />
+          <Property Name="ShabJamQanak" Type="float" />
+          <Property Name="DasJam" Type="float" />
+          <Property Name="G/L/Jam" Type="float" />
+        </EntityType>
         <EntityType Name="Masnagitucyun">
           <Key>
             <PropertyRef Name="MasnagitutyunID" />
           </Key>
-          <Property Name="MasnagitutyunID" Type="int" Nullable="false" />
+          <Property Name="MasnagitutyunID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Masnagitutyun" Type="nchar" MaxLength="255" />
           <Property Name="MasnagitutyunKrchat" Type="char" MaxLength="3" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'University.dbo.Student' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "University.dbo.Student" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="Student">
           <Key>
             <PropertyRef Name="StudentID" />
@@ -82,33 +107,97 @@ warning 6002: The table/view 'University.dbo.Student' does not have a primary ke
           <Property Name="AvarteluTarin" Type="int" />
           <Property Name="Nkar" Type="image" />
         </EntityType>
+        <Association Name="FK_ArarkaAmbion_Ambion">
+          <End Role="Ambion" Type="Self.Ambion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ArarkaAmbion" Type="Self.ArarkaAmbion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ambion">
+              <PropertyRef Name="AmbionID" />
+            </Principal>
+            <Dependent Role="ArarkaAmbion">
+              <PropertyRef Name="AmbionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArarkaAmbion_Ararka">
+          <End Role="Ararka" Type="Self.Ararka" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ArarkaAmbion" Type="Self.ArarkaAmbion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ararka">
+              <PropertyRef Name="ArarkaID" />
+            </Principal>
+            <Dependent Role="ArarkaAmbion">
+              <PropertyRef Name="ArarkaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FakultetArarka_Ambion">
+          <End Role="Ambion" Type="Self.Ambion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FakultetArarka" Type="Self.FakultetArarka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ambion">
+              <PropertyRef Name="AmbionID" />
+            </Principal>
+            <Dependent Role="FakultetArarka">
+              <PropertyRef Name="AmbionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FakultetArarka_Ararka">
+          <End Role="Ararka" Type="Self.Ararka" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FakultetArarka" Type="Self.FakultetArarka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ararka">
+              <PropertyRef Name="ArarkaID" />
+            </Principal>
+            <Dependent Role="FakultetArarka">
+              <PropertyRef Name="ArarkaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FakultetArarka_Fakultet">
+          <End Role="Fakultet" Type="Self.Fakultet" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FakultetArarka" Type="Self.FakultetArarka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fakultet">
+              <PropertyRef Name="FacultetID" />
+            </Principal>
+            <Dependent Role="FakultetArarka">
+              <PropertyRef Name="FackultetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FakultetArarka_Masnagitucyun">
+          <End Role="Masnagitucyun" Type="Self.Masnagitucyun" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FakultetArarka" Type="Self.FakultetArarka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Masnagitucyun">
+              <PropertyRef Name="MasnagitutyunID" />
+            </Principal>
+            <Dependent Role="FakultetArarka">
+              <PropertyRef Name="MasnagitutyunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="UniversityModelStoreContainer">
-          <EntitySet Name="Ambion" EntityType="Self.Ambion" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[Ambion].[AmbionID] AS [AmbionID], 
-[Ambion].[AmbionAnun] AS [AmbionAnun]
-FROM [dbo].[Ambion] AS [Ambion]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Ararka" EntityType="Self.Ararka" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[Ararka].[ArarkaID] AS [ArarkaID], 
-[Ararka].[ArarkaAnun] AS [ArarkaAnun]
-FROM [dbo].[Ararka] AS [Ararka]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Fakultet" EntityType="Self.Fakultet" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[Fakultet].[FacultetID] AS [FacultetID], 
-[Fakultet].[FacultetAnun] AS [FacultetAnun], 
-[Fakultet].[FacultetKrchat] AS [FacultetKrchat]
-FROM [dbo].[Fakultet] AS [Fakultet]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Masnagitucyun" EntityType="Self.Masnagitucyun" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[Masnagitucyun].[MasnagitutyunID] AS [MasnagitutyunID], 
-[Masnagitucyun].[Masnagitutyun] AS [Masnagitutyun], 
-[Masnagitucyun].[MasnagitutyunKrchat] AS [MasnagitutyunKrchat]
-FROM [dbo].[Masnagitucyun] AS [Masnagitucyun]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Ambion" EntityType="Self.Ambion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ararka" EntityType="Self.Ararka" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ArarkaAmbion" EntityType="Self.ArarkaAmbion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fakultet" EntityType="Self.Fakultet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FakultetArarka" EntityType="Self.FakultetArarka" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Masnagitucyun" EntityType="Self.Masnagitucyun" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
 [Student].[StudentID] AS [StudentID], 
@@ -137,41 +226,142 @@ FROM [dbo].[Masnagitucyun] AS [Masnagitucyun]</DefiningQuery>
 [Student].[Nkar] AS [Nkar]
 FROM [dbo].[Student] AS [Student]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK_ArarkaAmbion_Ambion" Association="Self.FK_ArarkaAmbion_Ambion">
+            <End Role="Ambion" EntitySet="Ambion" />
+            <End Role="ArarkaAmbion" EntitySet="ArarkaAmbion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArarkaAmbion_Ararka" Association="Self.FK_ArarkaAmbion_Ararka">
+            <End Role="Ararka" EntitySet="Ararka" />
+            <End Role="ArarkaAmbion" EntitySet="ArarkaAmbion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FakultetArarka_Ambion" Association="Self.FK_FakultetArarka_Ambion">
+            <End Role="Ambion" EntitySet="Ambion" />
+            <End Role="FakultetArarka" EntitySet="FakultetArarka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FakultetArarka_Ararka" Association="Self.FK_FakultetArarka_Ararka">
+            <End Role="Ararka" EntitySet="Ararka" />
+            <End Role="FakultetArarka" EntitySet="FakultetArarka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FakultetArarka_Fakultet" Association="Self.FK_FakultetArarka_Fakultet">
+            <End Role="Fakultet" EntitySet="Fakultet" />
+            <End Role="FakultetArarka" EntitySet="FakultetArarka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FakultetArarka_Masnagitucyun" Association="Self.FK_FakultetArarka_Masnagitucyun">
+            <End Role="Masnagitucyun" EntitySet="Masnagitucyun" />
+            <End Role="FakultetArarka" EntitySet="FakultetArarka" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="UniversityModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="UniversityEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ambion" EntityType="UniversityModel.Ambion" />
+          <EntitySet Name="Ararka" EntityType="UniversityModel.Ararka" />
+          <EntitySet Name="ArarkaAmbion" EntityType="UniversityModel.ArarkaAmbion" />
+          <EntitySet Name="Fakultet" EntityType="UniversityModel.Fakultet" />
+          <EntitySet Name="FakultetArarka" EntityType="UniversityModel.FakultetArarka" />
+          <EntitySet Name="Masnagitucyun" EntityType="UniversityModel.Masnagitucyun" />
+          <EntitySet Name="Student" EntityType="UniversityModel.Student" />
+          <AssociationSet Name="FK_ArarkaAmbion_Ambion" Association="UniversityModel.FK_ArarkaAmbion_Ambion">
+            <End Role="Ambion" EntitySet="Ambion" />
+            <End Role="ArarkaAmbion" EntitySet="ArarkaAmbion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FakultetArarka_Ambion" Association="UniversityModel.FK_FakultetArarka_Ambion">
+            <End Role="Ambion" EntitySet="Ambion" />
+            <End Role="FakultetArarka" EntitySet="FakultetArarka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArarkaAmbion_Ararka" Association="UniversityModel.FK_ArarkaAmbion_Ararka">
+            <End Role="Ararka" EntitySet="Ararka" />
+            <End Role="ArarkaAmbion" EntitySet="ArarkaAmbion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FakultetArarka_Ararka" Association="UniversityModel.FK_FakultetArarka_Ararka">
+            <End Role="Ararka" EntitySet="Ararka" />
+            <End Role="FakultetArarka" EntitySet="FakultetArarka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FakultetArarka_Fakultet" Association="UniversityModel.FK_FakultetArarka_Fakultet">
+            <End Role="Fakultet" EntitySet="Fakultet" />
+            <End Role="FakultetArarka" EntitySet="FakultetArarka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FakultetArarka_Masnagitucyun" Association="UniversityModel.FK_FakultetArarka_Masnagitucyun">
+            <End Role="Masnagitucyun" EntitySet="Masnagitucyun" />
+            <End Role="FakultetArarka" EntitySet="FakultetArarka" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Ambion">
           <Key>
             <PropertyRef Name="AmbionID" />
           </Key>
-          <Property Name="AmbionID" Type="Int32" Nullable="false" />
+          <Property Name="AmbionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AmbionAnun" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="ArarkaAmbion" Relationship="UniversityModel.FK_ArarkaAmbion_Ambion" FromRole="Ambion" ToRole="ArarkaAmbion" />
+          <NavigationProperty Name="FakultetArarka" Relationship="UniversityModel.FK_FakultetArarka_Ambion" FromRole="Ambion" ToRole="FakultetArarka" />
         </EntityType>
         <EntityType Name="Ararka">
           <Key>
             <PropertyRef Name="ArarkaID" />
           </Key>
-          <Property Name="ArarkaID" Type="Int32" Nullable="false" />
-          <Property Name="ArarkaAnun" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="ArarkaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArarkaName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ArarkaAmbion" Relationship="UniversityModel.FK_ArarkaAmbion_Ararka" FromRole="Ararka" ToRole="ArarkaAmbion" />
+          <NavigationProperty Name="FakultetArarka" Relationship="UniversityModel.FK_FakultetArarka_Ararka" FromRole="Ararka" ToRole="FakultetArarka" />
+        </EntityType>
+        <EntityType Name="ArarkaAmbion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AmbionID" Type="Int32" />
+          <Property Name="Ambion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ArarkaID" Type="Int32" />
+          <Property Name="ArarkaAnun" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ambion1" Relationship="UniversityModel.FK_ArarkaAmbion_Ambion" FromRole="ArarkaAmbion" ToRole="Ambion" />
+          <NavigationProperty Name="Ararka" Relationship="UniversityModel.FK_ArarkaAmbion_Ararka" FromRole="ArarkaAmbion" ToRole="Ararka" />
         </EntityType>
         <EntityType Name="Fakultet">
           <Key>
             <PropertyRef Name="FacultetID" />
           </Key>
-          <Property Name="FacultetID" Type="Int32" Nullable="false" />
+          <Property Name="FacultetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FacultetAnun" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
           <Property Name="FacultetKrchat" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="FakultetArarka" Relationship="UniversityModel.FK_FakultetArarka_Fakultet" FromRole="Fakultet" ToRole="FakultetArarka" />
+        </EntityType>
+        <EntityType Name="FakultetArarka">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FackultetID" Type="Int32" />
+          <Property Name="Fakultet" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MasnagitutyunID" Type="Int32" />
+          <Property Name="Masnagitutyun" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Kurs" Type="Int32" />
+          <Property Name="Kisamyak_1_2_" Type="Int32" />
+          <Property Name="Kisamyak" Type="Int32" />
+          <Property Name="ShabatneriQanak" Type="Int32" />
+          <Property Name="H_H" Type="Int32" />
+          <Property Name="Ararka_Praktika" Type="Int32" />
+          <Property Name="ArarkaID" Type="Int32" />
+          <Property Name="ArarkaAnun" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AmbionID" Type="Int32" />
+          <Property Name="Ambion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ShabJamQanak" Type="Double" />
+          <Property Name="DasJam" Type="Double" />
+          <Property Name="G_L_Jam" Type="Double" />
+          <NavigationProperty Name="Ambion1" Relationship="UniversityModel.FK_FakultetArarka_Ambion" FromRole="FakultetArarka" ToRole="Ambion" />
+          <NavigationProperty Name="Ararka" Relationship="UniversityModel.FK_FakultetArarka_Ararka" FromRole="FakultetArarka" ToRole="Ararka" />
+          <NavigationProperty Name="Fakultet1" Relationship="UniversityModel.FK_FakultetArarka_Fakultet" FromRole="FakultetArarka" ToRole="Fakultet" />
+          <NavigationProperty Name="Masnagitucyun" Relationship="UniversityModel.FK_FakultetArarka_Masnagitucyun" FromRole="FakultetArarka" ToRole="Masnagitucyun" />
         </EntityType>
         <EntityType Name="Masnagitucyun">
           <Key>
             <PropertyRef Name="MasnagitutyunID" />
           </Key>
-          <Property Name="MasnagitutyunID" Type="Int32" Nullable="false" />
+          <Property Name="MasnagitutyunID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Masnagitutyun" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
           <Property Name="MasnagitutyunKrchat" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="FakultetArarka" Relationship="UniversityModel.FK_FakultetArarka_Masnagitucyun" FromRole="Masnagitucyun" ToRole="FakultetArarka" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -179,7 +369,7 @@ FROM [dbo].[Student] AS [Student]</DefiningQuery>
             <PropertyRef Name="StudentCode" />
           </Key>
           <Property Name="StudentID" Type="Int64" Nullable="false" />
-          <Property Name="StudentCode" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="StudentCode" Type="String" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" />
           <Property Name="Azganun" Type="String" MaxLength="80" FixedLength="true" Unicode="true" />
           <Property Name="Anun" Type="String" MaxLength="80" FixedLength="true" Unicode="true" />
           <Property Name="Hayranun" Type="String" MaxLength="80" FixedLength="true" Unicode="true" />
@@ -203,13 +393,90 @@ FROM [dbo].[Student] AS [Student]</DefiningQuery>
           <Property Name="AvarteluTarin" Type="Int32" />
           <Property Name="Nkar" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityContainer Name="UniversityEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Ambion" EntityType="Self.Ambion" />
-          <EntitySet Name="Ararka" EntityType="Self.Ararka" />
-          <EntitySet Name="Fakultet" EntityType="Self.Fakultet" />
-          <EntitySet Name="Masnagitucyun" EntityType="Self.Masnagitucyun" />
-          <EntitySet Name="Student" EntityType="Self.Student" />
-        </EntityContainer>
+        <Association Name="FK_ArarkaAmbion_Ambion">
+          <End Type="UniversityModel.Ambion" Role="Ambion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="UniversityModel.ArarkaAmbion" Role="ArarkaAmbion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ambion">
+              <PropertyRef Name="AmbionID" />
+            </Principal>
+            <Dependent Role="ArarkaAmbion">
+              <PropertyRef Name="AmbionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FakultetArarka_Ambion">
+          <End Type="UniversityModel.Ambion" Role="Ambion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="UniversityModel.FakultetArarka" Role="FakultetArarka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ambion">
+              <PropertyRef Name="AmbionID" />
+            </Principal>
+            <Dependent Role="FakultetArarka">
+              <PropertyRef Name="AmbionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArarkaAmbion_Ararka">
+          <End Type="UniversityModel.Ararka" Role="Ararka" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="UniversityModel.ArarkaAmbion" Role="ArarkaAmbion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ararka">
+              <PropertyRef Name="ArarkaID" />
+            </Principal>
+            <Dependent Role="ArarkaAmbion">
+              <PropertyRef Name="ArarkaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FakultetArarka_Ararka">
+          <End Type="UniversityModel.Ararka" Role="Ararka" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="UniversityModel.FakultetArarka" Role="FakultetArarka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ararka">
+              <PropertyRef Name="ArarkaID" />
+            </Principal>
+            <Dependent Role="FakultetArarka">
+              <PropertyRef Name="ArarkaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FakultetArarka_Fakultet">
+          <End Type="UniversityModel.Fakultet" Role="Fakultet" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="UniversityModel.FakultetArarka" Role="FakultetArarka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fakultet">
+              <PropertyRef Name="FacultetID" />
+            </Principal>
+            <Dependent Role="FakultetArarka">
+              <PropertyRef Name="FackultetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FakultetArarka_Masnagitucyun">
+          <End Type="UniversityModel.Masnagitucyun" Role="Masnagitucyun" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="UniversityModel.FakultetArarka" Role="FakultetArarka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Masnagitucyun">
+              <PropertyRef Name="MasnagitutyunID" />
+            </Principal>
+            <Dependent Role="FakultetArarka">
+              <PropertyRef Name="MasnagitutyunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -219,64 +486,99 @@ FROM [dbo].[Student] AS [Student]</DefiningQuery>
           <EntitySetMapping Name="Ambion">
             <EntityTypeMapping TypeName="UniversityModel.Ambion">
               <MappingFragment StoreEntitySet="Ambion">
-                <ScalarProperty Name="AmbionID" ColumnName="AmbionID" />
                 <ScalarProperty Name="AmbionAnun" ColumnName="AmbionAnun" />
+                <ScalarProperty Name="AmbionID" ColumnName="AmbionID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ararka">
             <EntityTypeMapping TypeName="UniversityModel.Ararka">
               <MappingFragment StoreEntitySet="Ararka">
+                <ScalarProperty Name="ArarkaName" ColumnName="ArarkaName" />
                 <ScalarProperty Name="ArarkaID" ColumnName="ArarkaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ArarkaAmbion">
+            <EntityTypeMapping TypeName="UniversityModel.ArarkaAmbion">
+              <MappingFragment StoreEntitySet="ArarkaAmbion">
                 <ScalarProperty Name="ArarkaAnun" ColumnName="ArarkaAnun" />
+                <ScalarProperty Name="ArarkaID" ColumnName="ArarkaID" />
+                <ScalarProperty Name="Ambion" ColumnName="Ambion" />
+                <ScalarProperty Name="AmbionID" ColumnName="AmbionID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Fakultet">
             <EntityTypeMapping TypeName="UniversityModel.Fakultet">
               <MappingFragment StoreEntitySet="Fakultet">
-                <ScalarProperty Name="FacultetID" ColumnName="FacultetID" />
-                <ScalarProperty Name="FacultetAnun" ColumnName="FacultetAnun" />
                 <ScalarProperty Name="FacultetKrchat" ColumnName="FacultetKrchat" />
+                <ScalarProperty Name="FacultetAnun" ColumnName="FacultetAnun" />
+                <ScalarProperty Name="FacultetID" ColumnName="FacultetID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FakultetArarka">
+            <EntityTypeMapping TypeName="UniversityModel.FakultetArarka">
+              <MappingFragment StoreEntitySet="FakultetArarka">
+                <ScalarProperty Name="G_L_Jam" ColumnName="G/L/Jam" />
+                <ScalarProperty Name="DasJam" ColumnName="DasJam" />
+                <ScalarProperty Name="ShabJamQanak" ColumnName="ShabJamQanak" />
+                <ScalarProperty Name="Ambion" ColumnName="Ambion" />
+                <ScalarProperty Name="AmbionID" ColumnName="AmbionID" />
+                <ScalarProperty Name="ArarkaAnun" ColumnName="ArarkaAnun" />
+                <ScalarProperty Name="ArarkaID" ColumnName="ArarkaID" />
+                <ScalarProperty Name="Ararka_Praktika" ColumnName="Ararka/Praktika" />
+                <ScalarProperty Name="H_H" ColumnName="H/H" />
+                <ScalarProperty Name="ShabatneriQanak" ColumnName="ShabatneriQanak" />
+                <ScalarProperty Name="Kisamyak" ColumnName="Kisamyak" />
+                <ScalarProperty Name="Kisamyak_1_2_" ColumnName="Kisamyak(1,2)" />
+                <ScalarProperty Name="Kurs" ColumnName="Kurs" />
+                <ScalarProperty Name="Masnagitutyun" ColumnName="Masnagitutyun" />
+                <ScalarProperty Name="MasnagitutyunID" ColumnName="MasnagitutyunID" />
+                <ScalarProperty Name="Fakultet" ColumnName="Fakultet" />
+                <ScalarProperty Name="FackultetID" ColumnName="FackultetID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Masnagitucyun">
             <EntityTypeMapping TypeName="UniversityModel.Masnagitucyun">
               <MappingFragment StoreEntitySet="Masnagitucyun">
-                <ScalarProperty Name="MasnagitutyunID" ColumnName="MasnagitutyunID" />
-                <ScalarProperty Name="Masnagitutyun" ColumnName="Masnagitutyun" />
                 <ScalarProperty Name="MasnagitutyunKrchat" ColumnName="MasnagitutyunKrchat" />
+                <ScalarProperty Name="Masnagitutyun" ColumnName="Masnagitutyun" />
+                <ScalarProperty Name="MasnagitutyunID" ColumnName="MasnagitutyunID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Student">
             <EntityTypeMapping TypeName="UniversityModel.Student">
               <MappingFragment StoreEntitySet="Student">
-                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
-                <ScalarProperty Name="StudentCode" ColumnName="StudentCode" />
-                <ScalarProperty Name="Azganun" ColumnName="Azganun" />
-                <ScalarProperty Name="Anun" ColumnName="Anun" />
-                <ScalarProperty Name="Hayranun" ColumnName="Hayranun" />
-                <ScalarProperty Name="Ser" ColumnName="Ser" />
-                <ScalarProperty Name="Bithday" ColumnName="Bithday" />
-                <ScalarProperty Name="Tcnndavayr" ColumnName="Tcnndavayr" />
-                <ScalarProperty Name="Qaxaqaciutyun" ColumnName="Qaxaqaciutyun" />
-                <ScalarProperty Name="Incheavartel_dproc_" ColumnName="Incheavartel(dproc)" />
-                <ScalarProperty Name="AvarteluTarin__dproc_" ColumnName="AvarteluTarin (dproc)" />
-                <ScalarProperty Name="AvartakanVkayakaniHamar" ColumnName="AvartakanVkayakaniHamar" />
-                <ScalarProperty Name="BnakutyanVayr" ColumnName="BnakutyanVayr" />
-                <ScalarProperty Name="GrancmanVayr" ColumnName="GrancmanVayr" />
-                <ScalarProperty Name="Herbjayin" ColumnName="Herbjayin" />
-                <ScalarProperty Name="Mail" ColumnName="Mail" />
-                <ScalarProperty Name="YndunveluTarin" ColumnName="YndunveluTarin" />
-                <ScalarProperty Name="HramanTiv" ColumnName="HramanTiv" />
-                <ScalarProperty Name="HramaniOrAmisTari" ColumnName="HramaniOrAmisTari" />
-                <ScalarProperty Name="UsucmanDzev" ColumnName="UsucmanDzev" />
-                <ScalarProperty Name="YndAvartel" ColumnName="YndAvartel" />
-                <ScalarProperty Name="StugmanGrquyk" ColumnName="StugmanGrquyk" />
-                <ScalarProperty Name="AvarteluTarin" ColumnName="AvarteluTarin" />
                 <ScalarProperty Name="Nkar" ColumnName="Nkar" />
+                <ScalarProperty Name="AvarteluTarin" ColumnName="AvarteluTarin" />
+                <ScalarProperty Name="StugmanGrquyk" ColumnName="StugmanGrquyk" />
+                <ScalarProperty Name="YndAvartel" ColumnName="YndAvartel" />
+                <ScalarProperty Name="UsucmanDzev" ColumnName="UsucmanDzev" />
+                <ScalarProperty Name="HramaniOrAmisTari" ColumnName="HramaniOrAmisTari" />
+                <ScalarProperty Name="HramanTiv" ColumnName="HramanTiv" />
+                <ScalarProperty Name="YndunveluTarin" ColumnName="YndunveluTarin" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Herbjayin" ColumnName="Herbjayin" />
+                <ScalarProperty Name="GrancmanVayr" ColumnName="GrancmanVayr" />
+                <ScalarProperty Name="BnakutyanVayr" ColumnName="BnakutyanVayr" />
+                <ScalarProperty Name="AvartakanVkayakaniHamar" ColumnName="AvartakanVkayakaniHamar" />
+                <ScalarProperty Name="AvarteluTarin__dproc_" ColumnName="AvarteluTarin (dproc)" />
+                <ScalarProperty Name="Incheavartel_dproc_" ColumnName="Incheavartel(dproc)" />
+                <ScalarProperty Name="Qaxaqaciutyun" ColumnName="Qaxaqaciutyun" />
+                <ScalarProperty Name="Tcnndavayr" ColumnName="Tcnndavayr" />
+                <ScalarProperty Name="Bithday" ColumnName="Bithday" />
+                <ScalarProperty Name="Ser" ColumnName="Ser" />
+                <ScalarProperty Name="Hayranun" ColumnName="Hayranun" />
+                <ScalarProperty Name="Anun" ColumnName="Anun" />
+                <ScalarProperty Name="Azganun" ColumnName="Azganun" />
+                <ScalarProperty Name="StudentCode" ColumnName="StudentCode" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

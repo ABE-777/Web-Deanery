@@ -7,7 +7,7 @@ namespace WebDeanery.Models
 {
     public class FacultetModel
     {
-        public Int32 FacultetID { get; set; }
+        public Int32 FacultetId { get; set; }
 
         public String FacultetName { get; set; }
 
