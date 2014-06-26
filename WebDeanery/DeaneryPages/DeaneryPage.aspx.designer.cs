@@ -40,15 +40,6 @@ namespace WebDeanery.DeaneryPages {
         protected global::System.Web.UI.WebControls.ImageButton ImageButton2;
         
         /// <summary>
-        /// ImageButton3 элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton3;
-        
-        /// <summary>
         /// ImageButton4 элемент управления.
         /// </summary>
         /// <remarks>
@@ -83,24 +74,6 @@ namespace WebDeanery.DeaneryPages {
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton ImageButton7;
-        
-        /// <summary>
-        /// ImageButton8 элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton8;
-        
-        /// <summary>
-        /// ImageButton9 элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton9;
         
         /// <summary>
         /// ImageButton10 элемент управления.

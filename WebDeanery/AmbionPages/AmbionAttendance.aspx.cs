@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Script.Services;
 using System.Web.Services;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data;
-using System.Data.Common;
 using WebDeanery.DataLayer;
 using WebDeanery.Models;
 
@@ -46,10 +41,10 @@ namespace WebDeanery.AmbionPages
 
         [WebMethod]
         [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json, XmlSerializeString = false)]
-        public static List<MasnagitutyunModel> GetMasnagitutyun(int Id)
+        public static List<MasnagitutyunModel> GetMasnagitutyun(int fakultetId)
         {
             var lst = (from m in Db.FakultetArarka
-                       where m.FackultetID == Id
+                       where m.FackultetID == fakultetId
                        select new MasnagitutyunModel
                        {
                            MasnagitutyunId = (int)m.MasnagitutyunID,
@@ -60,5 +55,19 @@ namespace WebDeanery.AmbionPages
 
         }
 
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json, XmlSerializeString = false)]
+        public static List<MasnagitutyunModel> GetKurs(int ambionId, int masnagitutyunId)
+        {
+            var kurses = (from m in Db.FakultetArarka
+                          where m.AmbionID == ambionId && m.MasnagitutyunID == masnagitutyunId
+                          select new MasnagitutyunModel
+                          {
+                              Kurs = (int)m.Kurs
+                          }).Distinct().ToList();
+
+            return kurses;
+
+        }
     }
 }

@@ -50,6 +50,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -78,8 +79,18 @@
     <Content Include="AmbionPages\AmbionAttendance.aspx" />
     <Content Include="AmbionPages\AmbionAttendanceCheck.aspx" />
     <Content Include="AmbionPages\AmbionPage.aspx" />
+    <Content Include="AmbionPages\Examinations.aspx" />
+    <Content Include="AmbionPages\ManageNews.aspx" />
+    <Content Include="AmbionPages\Test.aspx" />
+    <Content Include="AmbionPages\TimeTable.aspx" />
     <Content Include="DeaneryPages\Attendance.aspx" />
     <Content Include="DeaneryPages\DeaneryPage.aspx" />
+    <Content Include="DeaneryPages\DiplomaSupplement.aspx" />
+    <Content Include="DeaneryPages\Examinations.aspx" />
+    <Content Include="DeaneryPages\Finance.aspx" />
+    <Content Include="DeaneryPages\ManageNews.aspx" />
+    <Content Include="DeaneryPages\StudentDetails.aspx" />
+    <Content Include="DeaneryPages\TimeTable.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="LogoutClass.css" />
@@ -108,6 +119,20 @@
     <Content Include="Resources\AmbionRes\01.png" />
     <Content Include="Resources\AmbionRes\02.png" />
     <Content Include="Resources\AmbionRes\03.png" />
+    <Content Include="Resources\AmbionRes\fakult.png" />
+    <Content Include="Resources\AmbionRes\fakultet.png" />
+    <Content Include="Resources\AmbionRes\fakultet2.png" />
+    <Content Include="Resources\AmbionRes\fakultetvochaktiv.png" />
+    <Content Include="Resources\AmbionRes\fon.png" />
+    <Content Include="Resources\AmbionRes\kurs.png" />
+    <Content Include="Resources\AmbionRes\kurs2.png" />
+    <Content Include="Resources\AmbionRes\kursvochaktiv.png" />
+    <Content Include="Resources\AmbionRes\masnagitutyun.png" />
+    <Content Include="Resources\AmbionRes\masnagitutyun2.png" />
+    <Content Include="Resources\AmbionRes\masnagitutyunvochaktiv.png" />
+    <Content Include="Resources\AmbionRes\podmenu.png" />
+    <Content Include="Resources\AmbionRes\podmenu2.png" />
+    <Content Include="Resources\AmbionRes\ptichka.png" />
     <Content Include="Resources\diploma_suppliment.jpg" />
     <Content Include="Resources\diploma_suppliment2.jpg" />
     <Content Include="Resources\FON.png" />
@@ -277,6 +302,34 @@
     <Compile Include="AmbionPages\AmbionPage.aspx.designer.cs">
       <DependentUpon>AmbionPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AmbionPages\Examinations.aspx.cs">
+      <DependentUpon>Examinations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AmbionPages\Examinations.aspx.designer.cs">
+      <DependentUpon>Examinations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AmbionPages\ManageNews.aspx.cs">
+      <DependentUpon>ManageNews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AmbionPages\ManageNews.aspx.designer.cs">
+      <DependentUpon>ManageNews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AmbionPages\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AmbionPages\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AmbionPages\TimeTable.aspx.cs">
+      <DependentUpon>TimeTable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AmbionPages\TimeTable.aspx.designer.cs">
+      <DependentUpon>TimeTable.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DataLayer\Ambion.cs">
       <DependentUpon>UniversityModel.tt</DependentUpon>
     </Compile>
@@ -290,6 +343,9 @@
       <DependentUpon>UniversityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataLayer\FakultetArarka.cs">
+      <DependentUpon>UniversityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\GetStudentCode_Result.cs">
       <DependentUpon>UniversityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataLayer\Masnagitucyun.cs">
@@ -334,6 +390,48 @@
     <Compile Include="DeaneryPages\DeaneryPage.aspx.designer.cs">
       <DependentUpon>DeaneryPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DeaneryPages\DiplomaSupplement.aspx.cs">
+      <DependentUpon>DiplomaSupplement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeaneryPages\DiplomaSupplement.aspx.designer.cs">
+      <DependentUpon>DiplomaSupplement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeaneryPages\Examinations.aspx.cs">
+      <DependentUpon>Examinations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeaneryPages\Examinations.aspx.designer.cs">
+      <DependentUpon>Examinations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeaneryPages\Finance.aspx.cs">
+      <DependentUpon>Finance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeaneryPages\Finance.aspx.designer.cs">
+      <DependentUpon>Finance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeaneryPages\ManageNews.aspx.cs">
+      <DependentUpon>ManageNews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeaneryPages\ManageNews.aspx.designer.cs">
+      <DependentUpon>ManageNews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeaneryPages\StudentDetails.aspx.cs">
+      <DependentUpon>StudentDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeaneryPages\StudentDetails.aspx.designer.cs">
+      <DependentUpon>StudentDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeaneryPages\TimeTable.aspx.cs">
+      <DependentUpon>TimeTable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeaneryPages\TimeTable.aspx.designer.cs">
+      <DependentUpon>TimeTable.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -351,6 +449,7 @@
     <Compile Include="Models\DataModel.cs" />
     <Compile Include="Models\FacultetModel.cs" />
     <Compile Include="Models\MasnagitutyunModel.cs" />
+    <Compile Include="Models\StudentModel.cs" />
     <Compile Include="ParentsPages\Parent.Master.cs">
       <DependentUpon>Parent.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

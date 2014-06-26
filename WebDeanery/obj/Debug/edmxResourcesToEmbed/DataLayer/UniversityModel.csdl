@@ -32,6 +32,9 @@
       <End Role="Masnagitucyun" EntitySet="Masnagitucyun" />
       <End Role="FakultetArarka" EntitySet="FakultetArarka" />
     </AssociationSet>
+    <FunctionImport Name="GetStudentCode" ReturnType="Collection(UniversityModel.GetStudentCode_Result)">
+      <Parameter Name="text" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="Ambion">
     <Key>
@@ -222,4 +225,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <ComplexType Name="GetStudentCode_Result">
+    <Property Type="String" Name="Azganun" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="Anun" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="Hayranun" Nullable="true" MaxLength="80" />
+  </ComplexType>
 </Schema>

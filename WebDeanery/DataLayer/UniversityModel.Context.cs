@@ -12,6 +12,9 @@ namespace WebDeanery.DataLayer
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
     public partial class UniversityEntities : DbContext
     {
@@ -32,5 +35,14 @@ namespace WebDeanery.DataLayer
         public DbSet<FakultetArarka> FakultetArarka { get; set; }
         public DbSet<Masnagitucyun> Masnagitucyun { get; set; }
         public DbSet<Student> Student { get; set; }
+    
+        public virtual ObjectResult<GetStudentCode_Result> GetStudentCode(string text)
+        {
+            var textParameter = text != null ?
+                new ObjectParameter("text", text) :
+                new ObjectParameter("text", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetStudentCode_Result>("GetStudentCode", textParameter);
+        }
     }
 }

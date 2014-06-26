@@ -29,13 +29,6 @@
           <Property Name="ArarkaID" Type="int" />
           <Property Name="ArarkaAnun" Type="nvarchar" MaxLength="255" />
         </EntityType>
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6013: Первичный ключ в таблице или представлении "University.dbo.Dasaxos" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
-        <EntityType Name="Dasaxos">
-          <Property Name="DasaxosID" Type="nchar" MaxLength="10" />
-          <Property Name="AnunAzganun" Type="nchar" MaxLength="10" />
-          <Property Name="Kochum" Type="nchar" MaxLength="10" />
-        </EntityType>-->
         <EntityType Name="Fakultet">
           <Key>
             <PropertyRef Name="FacultetID" />
@@ -75,8 +68,8 @@
           <Property Name="Masnagitutyun" Type="nchar" MaxLength="255" />
           <Property Name="MasnagitutyunKrchat" Type="char" MaxLength="3" />
         </EntityType>
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "University.dbo.Student" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'University.dbo.Student' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Student">
           <Key>
             <PropertyRef Name="StudentID" />
@@ -191,6 +184,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="GetStudentCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="text" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="UniversityModelStoreContainer">
           <EntitySet Name="Ambion" EntityType="Self.Ambion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ararka" EntityType="Self.Ararka" Schema="dbo" store:Type="Tables" />
@@ -287,6 +283,9 @@ FROM [dbo].[Student] AS [Student]</DefiningQuery>
             <End Role="Masnagitucyun" EntitySet="Masnagitucyun" />
             <End Role="FakultetArarka" EntitySet="FakultetArarka" />
           </AssociationSet>
+          <FunctionImport Name="GetStudentCode" ReturnType="Collection(UniversityModel.GetStudentCode_Result)">
+            <Parameter Name="text" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Ambion">
           <Key>
@@ -477,6 +476,11 @@ FROM [dbo].[Student] AS [Student]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="GetStudentCode_Result">
+          <Property Type="String" Name="Azganun" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="Anun" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="Hayranun" Nullable="true" MaxLength="80" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -582,6 +586,15 @@ FROM [dbo].[Student] AS [Student]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetStudentCode" FunctionName="UniversityModel.Store.GetStudentCode">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="UniversityModel.GetStudentCode_Result">
+                <ScalarProperty Name="Azganun" ColumnName="Azganun" />
+                <ScalarProperty Name="Anun" ColumnName="Anun" />
+                <ScalarProperty Name="Hayranun" ColumnName="Hayranun" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

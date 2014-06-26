@@ -100,5 +100,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetStudentCode" FunctionName="UniversityModel.Store.GetStudentCode">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="UniversityModel.GetStudentCode_Result">
+          <ScalarProperty Name="Azganun" ColumnName="Azganun" />
+          <ScalarProperty Name="Anun" ColumnName="Anun" />
+          <ScalarProperty Name="Hayranun" ColumnName="Hayranun" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

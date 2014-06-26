@@ -10,5 +10,6 @@ namespace WebDeanery.Models
         public Int32 MasnagitutyunId { get; set; }
         public String Masnagitutyun { get; set; }
         public String MasnagitutyunKrchat { get; set; }
+        public Int32 Kurs { get; set; }
     }
 }
