@@ -31,18 +31,53 @@ namespace WebDeanery.DataLayer
         public DbSet<Ambion> Ambion { get; set; }
         public DbSet<Ararka> Ararka { get; set; }
         public DbSet<ArarkaAmbion> ArarkaAmbion { get; set; }
+        public DbSet<BacakaShabat> BacakaShabat { get; set; }
         public DbSet<Fakultet> Fakultet { get; set; }
         public DbSet<FakultetArarka> FakultetArarka { get; set; }
         public DbSet<Masnagitucyun> Masnagitucyun { get; set; }
         public DbSet<Student> Student { get; set; }
     
-        public virtual ObjectResult<GetStudentCode_Result> GetStudentCode(string text)
+        public virtual ObjectResult<GetStudentCode_Result> GetStudentCode(string text, Nullable<int> kurs)
         {
             var textParameter = text != null ?
                 new ObjectParameter("text", text) :
                 new ObjectParameter("text", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetStudentCode_Result>("GetStudentCode", textParameter);
+            var kursParameter = kurs.HasValue ?
+                new ObjectParameter("kurs", kurs) :
+                new ObjectParameter("kurs", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetStudentCode_Result>("GetStudentCode", textParameter, kursParameter);
+        }
+    
+        public virtual ObjectResult<string> GetCode(string text, Nullable<int> kurs)
+        {
+            var textParameter = text != null ?
+                new ObjectParameter("text", text) :
+                new ObjectParameter("text", typeof(string));
+    
+            var kursParameter = kurs.HasValue ?
+                new ObjectParameter("kurs", kurs) :
+                new ObjectParameter("kurs", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("GetCode", textParameter, kursParameter);
+        }
+    
+        public virtual ObjectResult<GetTableData_Result> GetTableData(string text, Nullable<int> kurs, Nullable<int> ararkaID)
+        {
+            var textParameter = text != null ?
+                new ObjectParameter("text", text) :
+                new ObjectParameter("text", typeof(string));
+    
+            var kursParameter = kurs.HasValue ?
+                new ObjectParameter("kurs", kurs) :
+                new ObjectParameter("kurs", typeof(int));
+    
+            var ararkaIDParameter = ararkaID.HasValue ?
+                new ObjectParameter("ArarkaID", ararkaID) :
+                new ObjectParameter("ArarkaID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetTableData_Result>("GetTableData", textParameter, kursParameter, ararkaIDParameter);
         }
     }
 }

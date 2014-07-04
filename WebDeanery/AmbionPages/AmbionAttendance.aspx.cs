@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Net.Sockets;
 using System.Web.Script.Services;
 using System.Web.Services;
 using WebDeanery.DataLayer;
@@ -41,33 +43,46 @@ namespace WebDeanery.AmbionPages
 
         [WebMethod]
         [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json, XmlSerializeString = false)]
-        public static List<MasnagitutyunModel> GetMasnagitutyun(int fakultetId)
+        public static DataModel GetMasnagitutyun(int ambionId, int fakultetId)
         {
-            var lst = (from m in Db.FakultetArarka
+            var query = (from m in Db.FakultetArarka
                        where m.FackultetID == fakultetId
-                       select new MasnagitutyunModel
-                       {
-                           MasnagitutyunId = (int)m.MasnagitutyunID,
-                           Masnagitutyun = m.Masnagitutyun
-                       }).Distinct().ToList();
+                       select new {m.MasnagitutyunID,m.Masnagitutyun}).Distinct().ToList();
 
-            return lst;
+            var lst = new List<MasnagitutyunModel>();
+           
+            foreach (var q in query)
+            {
+                lst.Add(new MasnagitutyunModel
+                {
+                    FacultetId = fakultetId,
+                    Masnagitutyun = q.Masnagitutyun,
+                    MasnagitutyunId = (int)q.MasnagitutyunID,
+                    Kurs = (from m in Db.FakultetArarka
+                          where m.AmbionID == ambionId && m.MasnagitutyunID == q.MasnagitutyunID
+                          select new KursModel
+                          {
+                              Kurs = (int)m.Kurs
+                          }).Distinct().ToList()
+                });
+            }
+
+            return new DataModel
+            {
+               Masnagitutyun = lst
+            };
 
         }
 
-        [WebMethod]
-        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json, XmlSerializeString = false)]
-        public static List<MasnagitutyunModel> GetKurs(int ambionId, int masnagitutyunId)
+        public static List<Int32> GetKurs(int ambionId, int masnagitutyunId)
         {
             var kurses = (from m in Db.FakultetArarka
                           where m.AmbionID == ambionId && m.MasnagitutyunID == masnagitutyunId
-                          select new MasnagitutyunModel
-                          {
-                              Kurs = (int)m.Kurs
-                          }).Distinct().ToList();
+                          select m.Kurs).Distinct().ToList();
 
-            return kurses;
+            return new List<Int32>{Convert.ToInt32(kurses)};
 
         }
+
     }
 }

@@ -10,5 +10,6 @@ namespace WebDeanery.Models
         public String StAnun { get; set; }
         public String StAzganun { get; set; }
         public String StHayranun { get; set; }
+        public String StCode { get; set; }
     }
 }

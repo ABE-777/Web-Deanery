@@ -17,6 +17,7 @@ namespace WebDeanery.DataLayer
         public Ararka()
         {
             this.ArarkaAmbion = new HashSet<ArarkaAmbion>();
+            this.BacakaShabat = new HashSet<BacakaShabat>();
             this.FakultetArarka = new HashSet<FakultetArarka>();
         }
     
@@ -24,6 +25,7 @@ namespace WebDeanery.DataLayer
         public string ArarkaName { get; set; }
     
         public virtual ICollection<ArarkaAmbion> ArarkaAmbion { get; set; }
+        public virtual ICollection<BacakaShabat> BacakaShabat { get; set; }
         public virtual ICollection<FakultetArarka> FakultetArarka { get; set; }
     }
 }

@@ -14,6 +14,11 @@ namespace WebDeanery.DataLayer
     
     public partial class Student
     {
+        public Student()
+        {
+            this.BacakaShabat = new HashSet<BacakaShabat>();
+        }
+    
         public long StudentID { get; set; }
         public string StudentCode { get; set; }
         public string Azganun { get; set; }
@@ -38,5 +43,7 @@ namespace WebDeanery.DataLayer
         public string StugmanGrquyk { get; set; }
         public Nullable<int> AvarteluTarin { get; set; }
         public byte[] Nkar { get; set; }
+    
+        public virtual ICollection<BacakaShabat> BacakaShabat { get; set; }
     }
 }

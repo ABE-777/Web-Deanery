@@ -1,5 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Ambion.master.cs" Inherits="WebDeanery.AmbionPages.Ambion" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <script runat="server">  
     protected void Button_Command(Object sender, System.Web.UI.WebControls.CommandEventArgs e) 
     {
@@ -7,8 +8,12 @@
         Response.Redirect("~/Default.aspx");
     }  
 </script>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head id="Head1" runat="server">
+   
+    <script src="/Scripts/jquery-2.1.1.js"></script>
     <style type="text/css">
         input {
         margin:0;
@@ -40,19 +45,19 @@
     <asp:ContentPlaceHolder ID="head" runat="server" >
     </asp:ContentPlaceHolder>
 </head>
-<body style="margin: 0 0 0 0;">
+<body style="margin: 0 0 0 0;" >
     <form id="form1" runat="server">
-     <div id="Head" align="center", style="background-color:#7a1314; height: 133px;">
+     <div id="Head" align="center" class="noPrint" style="background-color:#7a1314; height: 133px;">
          <asp:Image ID="Image1" runat="server" ImageUrl="~/Resources/Head.png" />
          <br />
-         <div id="search_box" align="left">
+         <div id="search_box"  align="left">
             <img src="/Resources/searchbutton.png" alt="Submit" id="btn_search"  onmouseover="this.src='/Resources/searchbutton2.png'"  onmouseout="this.src='/Resources/searchbutton.png'"/>
             <input id="txt_search" type="text" />
         </div>
      </div>
-     <div id="HeadDiv" style="background-color:#7a1310;height: 26px; width:100%; display:inline; position:absolute">
+     <div id="HeadDiv" class="noPrint" style="background-color:#7a1310;height: 26px; width:100%; display:inline; position:absolute">
      </div>
-     <div id="HeadMenu" style=" background-color:#7a1310; width:974px; height: 26px; ">
+     <div id="HeadMenu"  class="noPrint" style=" background-color:#7a1310; width:974px; height: 26px; ">
          <asp:Menu ID="Menu" runat="server" Orientation="Horizontal" StaticEnableDefaultPopOutImage="False">
                  <Items>
                      <asp:MenuItem ImageUrl="~/Resources/Head/dasboard.jpg"  NavigateUrl="AmbionPage.aspx"></asp:MenuItem>
@@ -79,7 +84,7 @@
       <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">         
       </asp:ContentPlaceHolder>
     </form>
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
             $("#Menu img").mouseover(function () {

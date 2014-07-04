@@ -1,20 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AmbionPages/Ambion.Master" AutoEventWireup="true" CodeBehind="AmbionAttendance.aspx.cs" Inherits="WebDeanery.AmbionPages.AmbionAttendance" %>
-
-<%@ Import Namespace="System.Web.Services" %>
-
-<asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
-
-    <script type="text/javascript" src="../Scripts/jquery-2.1.1.js"></script>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="../Content/smart_tab_vertical.css" rel="stylesheet" />
     <script type="text/javascript" src="../Scripts/knockout-3.1.0.debug.js"></script>
     <script type="text/javascript" src="../Scripts/Module/AmbionModule.js"></script>
+    <script type="text/javascript" src="../Scripts/Plugin/jquery.smartTab.js"></script>
     <script type="text/javascript">
         $(function () {
             ko.applyBindings(new AmbionModel(), document.getElementById("chooseDiv"));
-            $(window).load(function () {
-                $($("input:radio")[0]).click();
-                $($(".facultetName")[0]).click();
-            });
 
+            $($("input:radio")[0]).click();
+           
         })
     </script>
     <style type="text/css">
@@ -55,16 +50,12 @@
             margin-top: 10px;
         }
 
-            .RadioDivClass > label {
-                color: #D9AC29;
-                font-size: large;
-                font-weight: bold;
-                margin-right: 60px;
-            }
+        .RadioDivClass > label {
+            color: #D9AC29;
+            font-size: large;
+            font-weight: bold;
+            margin-right: 60px;
 
-        .left {
-            float: left;
-            width: 33%;
         }
 
         .imageStyle {
@@ -73,34 +64,47 @@
 
         .facultetName {
             cursor: pointer;
+            font-size: 8px;
         }
 
-            .facultetName > img {
-                width: 20px;
-                height: 20px;
-            }
+        .facultetName > img {
+             width: 20px;
+             height: 20px;
+        }
+
+
+        .kursDiv, .masnagitutyunName {
+            display: inline;
+        }
 
         .kursActive {
-            content:url(/Resources/AmbionRes/kurs2.png)
-            /*color: red;*/
+            content: url(/Resources/AmbionRes/kurs2.png);
+            width: 10px;
+            height: 10px;
+            cursor: pointer;
         }
 
         .kursPassive {
             content: url(/Resources/AmbionRes/kurs.png);
-            display: none;
+            display: inline;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            cursor: default;    
         }
 
-         .masnagitutyunName > img {
-                width: 20px;
-                height: 20px;
-            }
+        .masnagitutyunName > img {
+            width: 20px;
+            height: 20px;
+        }
 
         .masnagitutyunName {
             cursor: pointer;
+            font-size: 12px;
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="chooseDiv">
         <div align="center" style="width: 974px; height: 26px;" class="RadioDivClass">
             <input id="College" type="radio" name="field" value="College" data-bind="click: selectRadio" />
@@ -112,41 +116,28 @@
             <input id="Aspirant" type="radio" name="field" value="Aspirant" data-bind="click: selectRadio" />
             <label for="Aspirant">&nbsp;Aspirant</label>
         </div>
-        <div class="left">
-            <img src="../Resources/AmbionRes/fakult.png" />
+        <div id="tabs">
             <ul data-bind="foreach: Facultets">
                 <li>
-                    <div class="facultetName" data-bind="text: FacultetName, click: $root.OpenFakultet">
-                    </div>
-
+                    <a class="facultetName" data-bind="text: FacultetName, attr: { href: '#tabs-' + FacultetId }, click: $root.OpenFakultet"></a>
                 </li>
             </ul>
-        </div>
-        <div class="left">
-            <p data-bind="text: FakultetText"></p>
-            <ul data-bind="foreach: Masnagitutyun">
-                <li>
-                    <div class="masnagitutyunName" data-bind="text: Masnagitutyun, click: $root.OpenMasnagitutyun">
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-        <div class="left">
-
-            <p data-bind="text: MasnagitutyunText"></p>
-
-            <div>
-                <div class="kursDiv">
-                <img class="kursPassive"/>
-                    <img class="kursPassive"/>
-                    <img class="kursPassive"/>
-                    <img class="kursPassive"/>
-                    <img class="kursPassive"/>
+            <div data-bind="foreach: Facultets">
+                <div data-bind="attr: { id: 'tabs-' + FacultetId }">
+                    <h2 data-bind="text: FacultetName"></h2>
+                    <ul class="list" data-bind="foreach: $parent.Masnagitutyun">
+                        <li>
+                            <div class="kursDiv">
+                                <div class="masnagitutyunName" data-bind="text: Masnagitutyun"></div>
+                                <img class="kursPassive" alt="1" data-bind="click: $root.GoToAnotherPage" />
+                                <img class="kursPassive" alt="2" data-bind="click: $root.GoToAnotherPage" />
+                                <img class="kursPassive" alt="3" data-bind="click: $root.GoToAnotherPage" />
+                                <img class="kursPassive" alt="4" data-bind="click: $root.GoToAnotherPage" />
+                                <img class="kursPassive" alt="5" data-bind="click: $root.GoToAnotherPage" />
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-               <ul data-bind="foreach: Kurs">
-                   <li data-bind="text: Kurs"></li>
-               </ul>
             </div>
         </div>
     </div>

@@ -1,6 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="UniversityModelStoreContainer" CdmEntityContainer="UniversityEntities">
+    <FunctionImportMapping FunctionImportName="GetStudentCode" FunctionName="UniversityModel.Store.GetStudentCode">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="UniversityModel.GetStudentCode_Result">
+          <ScalarProperty Name="Azganun" ColumnName="Azganun" />
+          <ScalarProperty Name="Anun" ColumnName="Anun" />
+          <ScalarProperty Name="Hayranun" ColumnName="Hayranun" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCode" FunctionName="UniversityModel.Store.GetCode" />
+    <FunctionImportMapping FunctionImportName="GetTableData" FunctionName="UniversityModel.Store.GetTableData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="UniversityModel.GetTableData_Result">
+          <ScalarProperty Name="Ndanur" ColumnName="Ndanur" />
+          <ScalarProperty Name="ErkuSh" ColumnName="ErkuSh" />
+          <ScalarProperty Name="ErekSh" ColumnName="ErekSh" />
+          <ScalarProperty Name="ChorSh" ColumnName="ChorSh" />
+          <ScalarProperty Name="HingSh" ColumnName="HingSh" />
+          <ScalarProperty Name="Urbat" ColumnName="Urbat" />
+          <ScalarProperty Name="Shabat" ColumnName="Shabat" />
+          <ScalarProperty Name="Kiraki" ColumnName="Kiraki" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <EntitySetMapping Name="Ambion">
       <EntityTypeMapping TypeName="UniversityModel.Ambion">
         <MappingFragment StoreEntitySet="Ambion">
@@ -24,6 +48,26 @@
           <ScalarProperty Name="ArarkaID" ColumnName="ArarkaID" />
           <ScalarProperty Name="Ambion" ColumnName="Ambion" />
           <ScalarProperty Name="AmbionID" ColumnName="AmbionID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BacakaShabat">
+      <EntityTypeMapping TypeName="UniversityModel.BacakaShabat">
+        <MappingFragment StoreEntitySet="BacakaShabat">
+          <ScalarProperty Name="Kiraki" ColumnName="Kiraki" />
+          <ScalarProperty Name="Shabat" ColumnName="Shabat" />
+          <ScalarProperty Name="Urbat" ColumnName="Urbat" />
+          <ScalarProperty Name="HingSh" ColumnName="HingSh" />
+          <ScalarProperty Name="ChorSh" ColumnName="ChorSh" />
+          <ScalarProperty Name="ErekSh" ColumnName="ErekSh" />
+          <ScalarProperty Name="ErkuSh" ColumnName="ErkuSh" />
+          <ScalarProperty Name="Ndanur" ColumnName="Ndanur" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="Kurs" ColumnName="Kurs" />
+          <ScalarProperty Name="ArarkaID" ColumnName="ArarkaID" />
+          <ScalarProperty Name="StudentCode" ColumnName="StudentCode" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -100,14 +144,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="GetStudentCode" FunctionName="UniversityModel.Store.GetStudentCode">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="UniversityModel.GetStudentCode_Result">
-          <ScalarProperty Name="Azganun" ColumnName="Azganun" />
-          <ScalarProperty Name="Anun" ColumnName="Anun" />
-          <ScalarProperty Name="Hayranun" ColumnName="Hayranun" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

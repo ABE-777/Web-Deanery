@@ -24,6 +24,25 @@
     <Property Name="ArarkaID" Type="int" />
     <Property Name="ArarkaAnun" Type="nvarchar" MaxLength="255" />
   </EntityType>
+  <EntityType Name="BacakaShabat">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentCode" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="ArarkaID" Type="int" Nullable="false" />
+    <Property Name="Kurs" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" Nullable="false" />
+    <Property Name="Ndanur" Type="int" />
+    <Property Name="ErkuSh" Type="nchar" MaxLength="2" />
+    <Property Name="ErekSh" Type="nchar" MaxLength="2" />
+    <Property Name="ChorSh" Type="nchar" MaxLength="2" />
+    <Property Name="HingSh" Type="nchar" MaxLength="2" />
+    <Property Name="Urbat" Type="nchar" MaxLength="2" />
+    <Property Name="Shabat" Type="nchar" MaxLength="2" />
+    <Property Name="Kiraki" Type="nchar" MaxLength="2" />
+  </EntityType>
   <EntityType Name="Fakultet">
     <Key>
       <PropertyRef Name="FacultetID" />
@@ -63,11 +82,8 @@
     <Property Name="Masnagitutyun" Type="nchar" MaxLength="255" />
     <Property Name="MasnagitutyunKrchat" Type="char" MaxLength="3" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'University.dbo.Student' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Student">
     <Key>
-      <PropertyRef Name="StudentID" />
       <PropertyRef Name="StudentCode" />
     </Key>
     <Property Name="StudentID" Type="bigint" Nullable="false" />
@@ -120,6 +136,34 @@ warning 6002: The table/view 'University.dbo.Student' does not have a primary ke
       </Principal>
       <Dependent Role="ArarkaAmbion">
         <PropertyRef Name="ArarkaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BacakaShabat_Ararka">
+    <End Role="Ararka" Type="Self.Ararka" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BacakaShabat" Type="Self.BacakaShabat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ararka">
+        <PropertyRef Name="ArarkaID" />
+      </Principal>
+      <Dependent Role="BacakaShabat">
+        <PropertyRef Name="ArarkaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BacakaShabat_Student1">
+    <End Role="Student" Type="Self.Student" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BacakaShabat" Type="Self.BacakaShabat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentCode" />
+      </Principal>
+      <Dependent Role="BacakaShabat">
+        <PropertyRef Name="StudentCode" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -179,44 +223,28 @@ warning 6002: The table/view 'University.dbo.Student' does not have a primary ke
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="GetCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="text" Type="nvarchar" Mode="In" />
+    <Parameter Name="kurs" Type="int" Mode="In" />
+  </Function>
   <Function Name="GetStudentCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="text" Type="nvarchar" Mode="In" />
+    <Parameter Name="kurs" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetTableData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="text" Type="nvarchar" Mode="In" />
+    <Parameter Name="kurs" Type="int" Mode="In" />
+    <Parameter Name="ArarkaID" Type="int" Mode="In" />
   </Function>
   <EntityContainer Name="UniversityModelStoreContainer">
     <EntitySet Name="Ambion" EntityType="Self.Ambion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Ararka" EntityType="Self.Ararka" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ArarkaAmbion" EntityType="Self.ArarkaAmbion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BacakaShabat" EntityType="Self.BacakaShabat" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Fakultet" EntityType="Self.Fakultet" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FakultetArarka" EntityType="Self.FakultetArarka" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Masnagitucyun" EntityType="Self.Masnagitucyun" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Student" EntityType="Self.Student" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-[Student].[StudentID] AS [StudentID], 
-[Student].[StudentCode] AS [StudentCode], 
-[Student].[Azganun] AS [Azganun], 
-[Student].[Anun] AS [Anun], 
-[Student].[Hayranun] AS [Hayranun], 
-[Student].[Ser] AS [Ser], 
-[Student].[Bithday] AS [Bithday], 
-[Student].[Tcnndavayr] AS [Tcnndavayr], 
-[Student].[Qaxaqaciutyun] AS [Qaxaqaciutyun], 
-[Student].[Incheavartel(dproc)] AS [Incheavartel(dproc)], 
-[Student].[AvarteluTarin (dproc)] AS [AvarteluTarin (dproc)], 
-[Student].[AvartakanVkayakaniHamar] AS [AvartakanVkayakaniHamar], 
-[Student].[BnakutyanVayr] AS [BnakutyanVayr], 
-[Student].[GrancmanVayr] AS [GrancmanVayr], 
-[Student].[Herbjayin] AS [Herbjayin], 
-[Student].[Mail] AS [Mail], 
-[Student].[YndunveluTarin] AS [YndunveluTarin], 
-[Student].[HramanTiv] AS [HramanTiv], 
-[Student].[HramaniOrAmisTari] AS [HramaniOrAmisTari], 
-[Student].[UsucmanDzev] AS [UsucmanDzev], 
-[Student].[YndAvartel] AS [YndAvartel], 
-[Student].[StugmanGrquyk] AS [StugmanGrquyk], 
-[Student].[AvarteluTarin] AS [AvarteluTarin], 
-[Student].[Nkar] AS [Nkar]
-FROM [dbo].[Student] AS [Student]</DefiningQuery>
-    </EntitySet>
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_ArarkaAmbion_Ambion" Association="Self.FK_ArarkaAmbion_Ambion">
       <End Role="Ambion" EntitySet="Ambion" />
       <End Role="ArarkaAmbion" EntitySet="ArarkaAmbion" />
@@ -224,6 +252,14 @@ FROM [dbo].[Student] AS [Student]</DefiningQuery>
     <AssociationSet Name="FK_ArarkaAmbion_Ararka" Association="Self.FK_ArarkaAmbion_Ararka">
       <End Role="Ararka" EntitySet="Ararka" />
       <End Role="ArarkaAmbion" EntitySet="ArarkaAmbion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BacakaShabat_Ararka" Association="Self.FK_BacakaShabat_Ararka">
+      <End Role="Ararka" EntitySet="Ararka" />
+      <End Role="BacakaShabat" EntitySet="BacakaShabat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BacakaShabat_Student1" Association="Self.FK_BacakaShabat_Student1">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="BacakaShabat" EntitySet="BacakaShabat" />
     </AssociationSet>
     <AssociationSet Name="FK_FakultetArarka_Ambion" Association="Self.FK_FakultetArarka_Ambion">
       <End Role="Ambion" EntitySet="Ambion" />

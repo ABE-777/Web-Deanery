@@ -10,5 +10,7 @@ namespace WebDeanery.Models
         public List<MasnagitutyunModel> Masnagitutyun { get; set; }
 
         public List<FacultetModel> Facultet { get; set; }
+
+        public List<StudentModel> Student { get; set; }
     }
 }

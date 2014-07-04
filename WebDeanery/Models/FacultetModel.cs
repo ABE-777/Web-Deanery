@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WebDeanery.DataLayer;
 
 namespace WebDeanery.Models
 {
@@ -12,5 +13,8 @@ namespace WebDeanery.Models
         public String FacultetName { get; set; }
 
         public String ShortName { get; set; }
+
+        public List<MasnagitutyunModel> Masnagitutyun { get; set; }
+        
     }
 }

@@ -13,6 +13,42 @@ namespace WebDeanery.AmbionPages {
     public partial class AmbionAttendanceCheck {
         
         /// <summary>
+        /// UchGod элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label UchGod;
+        
+        /// <summary>
+        /// Semestr элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Semestr;
+        
+        /// <summary>
+        /// Week элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Week;
+        
+        /// <summary>
+        /// Kurs элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Kurs;
+        
+        /// <summary>
         /// Cource элемент управления.
         /// </summary>
         /// <remarks>
@@ -20,15 +56,6 @@ namespace WebDeanery.AmbionPages {
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Cource;
-        
-        /// <summary>
-        /// CourceName элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CourceName;
         
         /// <summary>
         /// Predmet элемент управления.
@@ -40,31 +67,31 @@ namespace WebDeanery.AmbionPages {
         protected global::System.Web.UI.WebControls.Label Predmet;
         
         /// <summary>
-        /// Названия_предметов элемент управления.
+        /// Subjects элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Названия_предметов;
+        protected global::System.Web.UI.WebControls.DropDownList Subjects;
         
         /// <summary>
-        /// Button1 элемент управления.
+        /// Group элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Label Group;
         
         /// <summary>
-        /// Button2 элемент управления.
+        /// Groups элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.DropDownList Groups;
         
         /// <summary>
         /// CheckinTable элемент управления.
@@ -74,5 +101,14 @@ namespace WebDeanery.AmbionPages {
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTable CheckinTable;
+        
+        /// <summary>
+        /// SaveButton элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SaveButton;
     }
 }
